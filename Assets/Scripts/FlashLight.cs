@@ -7,10 +7,18 @@ public class FlashLight : MonoBehaviour {
     public float lerpSpeed = 5;
     public float flashLightTimeToShake = 0.1f;
     public float magnitudee = 0.1f;
+    public float glitterIntensityMultiplier = 0.6f;
+    public Vector2 timeToGlitter = new Vector2(0.3f, 3f);
+    public Vector2 timeToRecoverIntensity = new Vector2(0.1f, 0.5f);
 
     private float _timer;
+    private float _timerGlitter;
     private bool _shaked;
+    private bool _glittered;
     private Vector3 _lastShakePosition;
+    private float _defaultIntensity;
+    private float _randomTimeToGlitter;
+    private float _randomTimeToRecoverIntensity;
 
     public static FlashLight instance;
 
@@ -18,6 +26,13 @@ public class FlashLight : MonoBehaviour {
         if (!instance) {
             instance = this;
         }
+    }
+
+    private void Start() {
+
+        _defaultIntensity = Player.instance.spotLight.intensity;
+        _randomTimeToGlitter = Random.Range(timeToGlitter.x, timeToGlitter.y);
+        _randomTimeToRecoverIntensity = Random.Range(timeToRecoverIntensity.x, timeToRecoverIntensity.y);
     }
 
     private void Update() {
@@ -36,6 +51,12 @@ public class FlashLight : MonoBehaviour {
                 _timer = 0;
             }
         }
+
+        _timerGlitter += Time.deltaTime;
+        if (_timerGlitter >= _randomTimeToGlitter && !_glittered) {
+            _glittered = true;
+            Glitter();
+        }
     }
 
     public void DoOneShakeInstance() {
@@ -50,5 +71,25 @@ public class FlashLight : MonoBehaviour {
     public void GoBackToOriginalPosition() {
         transform.localPosition = Vector3.zero;
         _shaked = false;
+    }
+
+    public void Glitter() {
+        Player.instance.spotLight.intensity = _defaultIntensity * glitterIntensityMultiplier;
+
+        StartCoroutine(C_RecoverIntensity());
+    }
+
+    private IEnumerator C_RecoverIntensity() {
+
+        float timer = Time.time;
+        while (Time.time - timer < _randomTimeToRecoverIntensity) {
+            yield return null;
+        }
+
+        Player.instance.spotLight.intensity = _defaultIntensity;
+        _glittered = false;
+        _timerGlitter = 0;
+        _randomTimeToGlitter = Random.Range(timeToGlitter.x, timeToGlitter.y);
+        _randomTimeToRecoverIntensity = Random.Range(timeToRecoverIntensity.x, timeToRecoverIntensity.y);
     }
 }
