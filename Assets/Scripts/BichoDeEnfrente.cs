@@ -27,11 +27,20 @@ public class BichoDeEnfrente : MonoBehaviour {
 
         if (currentPositionIndex == 2) {
             if (!Mask.instance.isMaskOn) {
+
                 _killTimer += Time.deltaTime;
                 if (_killTimer >= timeToKill) {
                     //MATAR
                 }
 
+            } else {
+                _hideTimer += Time.deltaTime;
+                if (_hideTimer >= timeToHideWithMask) {
+                    currentPositionIndex = 0;
+                    ChangePosition();
+                    _killTimer = 0;
+                    _hideTimer = 0;
+                }
             }
         }
     }
