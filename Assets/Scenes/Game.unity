@@ -136,7 +136,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &157207113
 Light:
   m_ObjectHideFlags: 0
@@ -626,7 +626,7 @@ GameObject:
   - component: {fileID: 424512577}
   - component: {fileID: 424512576}
   - component: {fileID: 424512575}
-  - component: {fileID: 424512574}
+  - component: {fileID: 424512578}
   m_Layer: 0
   m_Name: BichoDelPasillo
   m_TagString: Untagged
@@ -634,23 +634,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &424512574
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 424512573}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddaf66c094bc99e4a91a08a51fcd4539, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  approachSpeed: 0.5
-  attackPosition: {fileID: 760545619}
-  hidePosition: {fileID: 1983071357}
-  totalFlashesNeeded: 3
-  _flashCounter: 0
 --- !u!23 &424512575
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -713,12 +696,27 @@ Transform:
   m_GameObject: {fileID: 424512573}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.91, y: 0, z: -8.93}
+  m_LocalPosition: {x: 6.91, y: 0, z: -11.14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &424512578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424512573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6319b64ad31dbec4ba210950a85ccf1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  approachSpeedd: 1
+  attackPosition: {fileID: 1478599239}
+  hidePosition: {fileID: 1270945459}
 --- !u!1 &432432459
 GameObject:
   m_ObjectHideFlags: 0
@@ -809,7 +807,7 @@ GameObject:
   m_Component:
   - component: {fileID: 760545619}
   m_Layer: 0
-  m_Name: AttackPosition
+  m_Name: AttackPosition_BichoDeDetras
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1049,6 +1047,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1270945458
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1270945459}
+  m_Layer: 0
+  m_Name: HidePosition_BichoDelPasillo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1270945459
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270945458}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.91, y: 0, z: -2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1478599238
 GameObject:
   m_ObjectHideFlags: 0
@@ -1059,7 +1088,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1478599239}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: AttackPosition_BichoDelPasillo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1074,7 +1103,7 @@ Transform:
   m_GameObject: {fileID: 1478599238}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.17555, y: -3.09405, z: -3.95}
+  m_LocalPosition: {x: 6.91, y: 0, z: -11.14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1402,7 +1431,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1983071357}
   m_Layer: 0
-  m_Name: HidePosition
+  m_Name: HidePosition_BichoDeDetras
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1732,4 +1761,5 @@ SceneRoots:
   - {fileID: 1983071357}
   - {fileID: 424512577}
   - {fileID: 1478599239}
+  - {fileID: 1270945459}
   - {fileID: 4964217181904625010}

@@ -2,11 +2,10 @@ using UnityEngine;
 
 public class BichoDelPasillo : MonoBehaviour {
 
-    public float approachSpeed = 0.5f;
+    public float approachSpeedd = 1f;
+    public float hideSpeedd = 2f;
     public Transform attackPosition;
     public Transform hidePosition;
-    public int totalFlashesNeeded = 3;
-    public int _flashCounter;
 
     public static BichoDelPasillo instance;
 
@@ -15,38 +14,12 @@ public class BichoDelPasillo : MonoBehaviour {
     }
 
     private void Update() {
-        if (Player.instance.spotLight) {
+        if (Player.instance.spotLight.gameObject.activeSelf && Mathf.Abs(Vector3.Angle(FlashLight.instance.transform.forward, transform.position - FlashLight.instance.transform.position)) < 50) {
 
+            transform.position = Vector3.MoveTowards(transform.position, hidePosition.position, Time.deltaTime * hideSpeedd);
+
+        } else {
+            transform.position = Vector3.MoveTowards(transform.position, attackPosition.position, Time.deltaTime * approachSpeedd);
         }
-
-        float angle = Vector3.Angle(FlashLight.instance.transform.forward, transform.position - FlashLight.instance.transform.position);
-
-        if (Mathf.Abs(angle) < 50) {
-
-            _flashCounter++;
-            if (_flashCounter >= totalFlashesNeeded) {
-                GoBackAndHide();
-                _flashCounter = 0;
-            }
-        }
-
-        transform.position = Vector3.MoveTowards(transform.position, attackPosition.position, Time.deltaTime * approachSpeed);
-    }
-
-    public void Flashed() {
-        float angle = Vector3.Angle(FlashLight.instance.transform.forward, transform.position - FlashLight.instance.transform.position);
-
-        if (Mathf.Abs(angle) < 50) {
-
-            _flashCounter++;
-            if (_flashCounter >= totalFlashesNeeded) {
-                GoBackAndHide();
-                _flashCounter = 0;
-            }
-        }
-    }
-
-    public void GoBackAndHide() {
-        transform.position = hidePosition.position;
     }
 }
