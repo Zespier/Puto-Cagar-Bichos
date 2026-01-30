@@ -616,8 +616,8 @@ MonoBehaviour:
   flashLightTimeToShake: 0.17
   magnitudee: 0.1
   glitterIntensityMultiplier: 0.7
-  timeToGlitter: {x: 0.15, y: 3}
-  timeToRecoverIntensity: {x: 0.05, y: 0.25}
+  timeToGlitter: {x: 0.15, y: 2.7}
+  timeToRecoverIntensity: {x: 0.035, y: 0.17}
 --- !u!1 &424512573
 GameObject:
   m_ObjectHideFlags: 0
