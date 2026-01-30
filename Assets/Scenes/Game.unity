@@ -1659,7 +1659,7 @@ MonoBehaviour:
   approachSpeed: 0.5
   attackPosition: {fileID: 760545619}
   hidePosition: {fileID: 1983071357}
-  totalFlashesNeeded: 3
+  totalFlashesNeeded: 5
   _flashCounter: 0
 --- !u!1 &2137140840
 GameObject:
