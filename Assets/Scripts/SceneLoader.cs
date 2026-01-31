@@ -11,6 +11,7 @@ public class SceneLoader : MonoBehaviour {
     private bool _isFading;
     private bool _isShowingDeathScreen;
     private bool _isReloading;
+    private bool _isLoadingMainMenu;
 
     public static SceneLoader instance;
 
@@ -58,7 +59,7 @@ public class SceneLoader : MonoBehaviour {
 
     public void ShowDeathScreen(Sprite enemyScreenshot, string deathReason) {
         if (!_isShowingDeathScreen) {
-            StartCoroutine(C_ShowDeathScreen( enemyScreenshot, deathReason));
+            StartCoroutine(C_ShowDeathScreen(enemyScreenshot, deathReason));
         }
     }
 
@@ -87,7 +88,22 @@ public class SceneLoader : MonoBehaviour {
         yield return new WaitForSeconds(1);
 
         _isReloading = false;
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("Game");
+    }
 
+    public void LoadMainMenu() {
+        if (!_isLoadingMainMenu) {
+            StartCoroutine(C_LoadMainMenu());
+        }
+    }
+
+    private IEnumerator C_LoadMainMenu() {
+        _isLoadingMainMenu = true;
+
+        FadeIn();
+        yield return new WaitForSeconds(1);
+
+        _isLoadingMainMenu = false;
+        SceneManager.LoadScene("MainMenu");
     }
 }

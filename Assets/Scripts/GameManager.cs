@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
@@ -20,7 +21,11 @@ public class GameManager : MonoBehaviour {
     }
 
     private void Start() {
-        GameState = GameState.Playing;
+        if (SceneManager.GetActiveScene().name.Contains("Game")) {
+            GameState = GameState.Playing;
+        } else {
+            GameState = GameState.Paused;
+        }
     }
 
     public static void ManageMouse(GameState gameState) {

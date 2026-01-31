@@ -39,7 +39,7 @@ public class DeathScreen : MonoBehaviour {
 
     public void SerGay(InputAction.CallbackContext context) {
         if (canvasGroup.alpha == 1) {
-            Application.Quit();
+            SceneLoader.instance.LoadMainMenu();
         }
     }
 
