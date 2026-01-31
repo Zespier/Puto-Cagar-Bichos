@@ -1618,7 +1618,7 @@
     "m_SGVersion": 0,
     "m_Type": "UnityEditor.Rendering.HighDefinition.ShaderGraph.SystemData",
     "m_ObjectId": "3db4b91f4227486aa06dfc72d6df030a",
-    "m_MaterialNeedsUpdateHash": -1,
+    "m_MaterialNeedsUpdateHash": 1,
     "m_SurfaceType": 1,
     "m_RenderingPass": 4,
     "m_BlendMode": 0,
@@ -2778,9 +2778,6 @@
             "m_Id": "a7aa5d4c99b6428694283e824edd3276"
         },
         {
-            "m_Id": "9b7f33bb44c84972af73b8ef580cf6d9"
-        },
-        {
             "m_Id": "26e92181b0aa46f9a2dc0e515693cfcd"
         }
     ],
@@ -2838,20 +2835,6 @@
         "y": 1.0
     },
     "m_Labels": []
-}
-
-{
-    "m_SGVersion": 0,
-    "m_Type": "UnityEditor.Rendering.HighDefinition.ShaderGraph.LightingData",
-    "m_ObjectId": "9b7f33bb44c84972af73b8ef580cf6d9",
-    "m_NormalDropOffSpace": 0,
-    "m_BlendPreserveSpecular": true,
-    "m_ReceiveDecals": true,
-    "m_ReceiveSSR": true,
-    "m_ReceiveSSRTransparent": false,
-    "m_SpecularAA": false,
-    "m_SpecularOcclusionMode": 1,
-    "m_OverrideBakedGI": false
 }
 
 {
