@@ -32,13 +32,13 @@ public class DeathScreen : MonoBehaviour {
     }
 
     public void RestartLevel(InputAction.CallbackContext context) {
-        if (gameObject.activeSelf) {
+        if (canvasGroup.alpha == 1) {
             SceneLoader.instance.ReloadLevel();
         }
     }
 
     public void SerGay(InputAction.CallbackContext context) {
-        if (gameObject.activeSelf) {
+        if (canvasGroup.alpha == 1) {
             Application.Quit();
         }
     }

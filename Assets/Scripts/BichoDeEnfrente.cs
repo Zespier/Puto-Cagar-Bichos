@@ -19,8 +19,15 @@ public class BichoDeEnfrente : Aggro {
         _timer = Time.time;
     }
 
-    private void Update() {
+    protected override void Update() {
+        base.Update();
         if (_playerDead) { return; }
+
+        if (state == EnemyState.Hiding) {
+            _timer = Time.time;
+            return;
+        }
+
 
         if (currentPositionIndex == 2) {
             if (!Mask.instance.isMaskOn) {

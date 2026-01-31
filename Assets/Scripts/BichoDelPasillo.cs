@@ -28,7 +28,10 @@ public class BichoDelPasillo : Aggro {
         _puertaDefaultForward = puerta.rotation;
     }
 
-    private void Update() {
+    protected override void Update() {
+        base.Update();
+        if (state == EnemyState.Hiding) { return; }
+
         if (Player.instance.spotLight.gameObject.activeSelf && Mathf.Abs(Vector3.Angle(FlashLight.instance.transform.forward, transform.position - FlashLight.instance.transform.position)) < 50) {
 
             transform.position = Vector3.MoveTowards(transform.position, hidePosition.position, Time.deltaTime * hideSpeedd);

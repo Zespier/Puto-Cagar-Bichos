@@ -15,15 +15,21 @@ public class BichoDeDetras : Aggro {
         if (!instance) { instance = this; }
     }
 
-    private void Update() {
-        transform.position = Vector3.MoveTowards(transform.position, attackPosition.position, Time.deltaTime * approachSpeed);
+    protected override void Update() {
+        base.Update();
+        if (state == EnemyState.Hunting) {
 
-        if (transform.position == attackPosition.position) {
-            CameraHolder.instance.DeathAnimation(DeathType.DebajoDeLaMesa);
+            transform.position = Vector3.MoveTowards(transform.position, attackPosition.position, Time.deltaTime * approachSpeed);
+
+            if (transform.position == attackPosition.position) {
+                CameraHolder.instance.DeathAnimation(DeathType.DebajoDeLaMesa);
+            }
         }
     }
 
     public void Flashed() {
+        if (state == EnemyState.Hiding) { return; }
+
         float angle = Vector3.Angle(FlashLight.instance.transform.forward, transform.position - FlashLight.instance.transform.position);
 
         if (Mathf.Abs(angle) < 50) {

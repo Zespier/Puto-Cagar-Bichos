@@ -143,7 +143,7 @@ public class CameraHolder : MonoBehaviour {
 
         StartCoroutine(C_Shake());
 
-        while (Time.time - timer < 2) {
+        while (Time.time - timer < 1) {
             transform.forward = Vector3.Slerp(transform.forward, deathForward, Time.deltaTime * cameraDeathMoveSpeed);
             yield return null;
         }

@@ -11,14 +11,17 @@ public class Aggro : MonoBehaviour {
     public EnemyState state;
     public float hideTimer;
 
-    public float HideTime => hideTimersPerStage[currentStage];
+    protected float randomHideTime;
 
-    private void Start() {
+    public float HideTime => randomHideTime;
+
+    protected void Start() {
         gameTimer = Time.time;
         hideTimer = Time.time;
+        randomHideTime = Random.Range(hideTimersPerStage[currentStage] - 1.7f, hideTimersPerStage[currentStage] + 1.7f);
     }
 
-    private void Update() {
+    protected virtual void Update() {
         if (Time.time - gameTimer >= timePerStage[currentStage]) {
             currentStage++;
             gameTimer = Time.time;
@@ -35,6 +38,7 @@ public class Aggro : MonoBehaviour {
     public void Hide() {
         state = EnemyState.Hiding;
         hideTimer = Time.time;
+        randomHideTime = Random.Range(hideTimersPerStage[currentStage] - 1, hideTimersPerStage[currentStage] + 1);
     }
 }
 
