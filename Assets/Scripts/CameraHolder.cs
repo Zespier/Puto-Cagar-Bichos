@@ -182,6 +182,11 @@ public class CameraHolder : MonoBehaviour {
     }
 
     public void GoToPc() {
+        if (transform.position == pcPosition.position) {
+            StopLookingAtPc();
+            return;
+        }
+
         if (!_movingCameraToPc) {
             StartCoroutine(C_GoToPc());
         }
@@ -189,6 +194,8 @@ public class CameraHolder : MonoBehaviour {
 
     private IEnumerator C_GoToPc() {
         _movingCameraToPc = true;
+
+        GameManager.GameState = GameState.OnPc;
 
         float timer = Time.time;
 
@@ -198,6 +205,7 @@ public class CameraHolder : MonoBehaviour {
         while (transform.position != pcPosition.position) {
             transform.position = Vector3.Lerp(initialPosition, pcPosition.position, (Time.time - timer) / timeToGoToPc);
             targetHelper.forward = Vector3.Slerp(initialForward, -pcPosition.forward, (Time.time - timer) / timeToGoToPc);
+            transform.forward = targetHelper.forward;
             yield return null;
         }
 

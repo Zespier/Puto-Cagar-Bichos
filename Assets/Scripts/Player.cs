@@ -91,7 +91,7 @@ public class Player : MonoBehaviour {
             return;
         }
 
-        if (GameManager.GameState == GameState.Playing) {
+        if (GameManager.GameState == GameState.Playing || GameManager.GameState == GameState.OnPc) {
 
             RaycastHit[] hits = Physics.RaycastAll(CameraHolder.instance.transform.position, CameraHolder.instance.transform.forward);
 
