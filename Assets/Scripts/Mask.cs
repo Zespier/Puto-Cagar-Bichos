@@ -17,21 +17,29 @@ public class Mask : MonoBehaviour {
     }
 
     public void PutMask(InputAction.CallbackContext context) {
-        if (isMaskOn) {
-            RemoveMask(default);
-            return;
-        }
+        //if (GameManager.GameState != GameState.Playing) {
+        //    return;
+        //}
 
-        if (c_PutMask != null) {
-            StopCoroutine(c_PutMask);
-        }
-        c_PutMask = StartCoroutine(C_PutMask(Vector3.forward));
+        //if (isMaskOn) {
+        //    RemoveMask(default);
+        //    return;
+        //}
 
-        isMaskOn = true;
-        GameManager.GameState = GameState.MaskOn;
+        //if (c_PutMask != null) {
+        //    StopCoroutine(c_PutMask);
+        //}
+        //c_PutMask = StartCoroutine(C_PutMask(Vector3.forward));
+
+        //isMaskOn = true;
+        //GameManager.GameState = GameState.MaskOn;
     }
 
     public void RemoveMask(InputAction.CallbackContext context) {
+        if (GameManager.GameState != GameState.MaskOn) {
+            return;
+        }
+
         if (!isMaskOn) {
             PutMask(default);
             return;
@@ -43,6 +51,7 @@ public class Mask : MonoBehaviour {
         c_PutMask = StartCoroutine(C_PutMask(Vector3.down));
         isMaskOn = false;
 
+        GameManager.GameState = GameState.Playing;
     }
 
     private IEnumerator C_PutMask(Vector3 direction) {
