@@ -1178,7 +1178,7 @@ Transform:
   m_GameObject: {fileID: 760545618}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0.56, y: 0, z: 1.6799998}
+  m_LocalPosition: {x: -0.56, y: 0, z: 0.925}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2403,7 +2403,7 @@ Transform:
   m_GameObject: {fileID: 1983071356}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0.56, y: 0, z: 6.24}
+  m_LocalPosition: {x: -0.56, y: 0, z: 5.2899995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2646,7 +2646,7 @@ Transform:
   m_GameObject: {fileID: 2058084643}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0.56, y: 0, z: 6.2400002}
+  m_LocalPosition: {x: -0.56, y: 0, z: 5.29}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2686,7 +2686,7 @@ MonoBehaviour:
   gameTimer: 0
   state: 0
   hideTimer: 0
-  approachSpeed: 0.35
+  approachSpeed: 0.3
   attackPosition: {fileID: 760545619}
   hidePosition: {fileID: 1983071357}
   totalFlashesNeeded: 5

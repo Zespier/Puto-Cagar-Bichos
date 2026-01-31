@@ -9,6 +9,7 @@ public class BichoDeEnfrente : Aggro {
     public int currentPositionIndex;
     public float timeToKill = 5;
     public float timeToHideWithMask = 2f;
+    public Sprite bichoDeEnfrenteDeathSprite;
 
     private float _timer;
     private float _killTimer;
@@ -35,7 +36,7 @@ public class BichoDeEnfrente : Aggro {
                 _killTimer += Time.deltaTime;
                 if (_killTimer >= timeToKill) {
                     _playerDead = true;
-                    CameraHolder.instance.DeathAnimation(DeathType.SalaDeReuniones);
+                    CameraHolder.instance.DeathAnimation(DeathType.SalaDeReuniones, bichoDeEnfrenteDeathSprite, "´No tiene buena vista, ponte una máscara con el botón izquierdo para hacerte pasar por uno de ellos.");
                 }
 
             } else {

@@ -13,6 +13,7 @@ public class BichoDelPasillo : Aggro {
     public Transform puertaOrientation;
     public float timeToOpenTheDoor = 3;
     public float doorKillingAnimationTime = 0.2f;
+    public Sprite bichoDelPasilloDeathSprite;
 
     private Vector3 _defaultUp;
     private float _openDoorTimer;
@@ -77,6 +78,6 @@ public class BichoDelPasillo : Aggro {
 
         puerta.rotation = puertaOrientation.rotation;
 
-        CameraHolder.instance.DeathAnimation(DeathType.Pasillo);
+        CameraHolder.instance.DeathAnimation(DeathType.Pasillo, bichoDelPasilloDeathSprite, "Apúntale con la linterna para que se vaya");
     }
 }

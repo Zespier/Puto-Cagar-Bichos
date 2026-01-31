@@ -121,15 +121,15 @@ public class CameraHolder : MonoBehaviour {
         _lookValue = playerInput.Player.Look.ReadValue<Vector2>();
     }
 
-    public void DeathAnimation(DeathType deathType) {
+    public void DeathAnimation(DeathType deathType, Sprite enemyScreenshot, string deathReason) {
         if (_dying) { return; }
 
         GameManager.GameState = GameState.Dying;
 
-        StartCoroutine(C_DeathAnimation(deathType));
+        StartCoroutine(C_DeathAnimation(deathType, enemyScreenshot, deathReason));
     }
 
-    private IEnumerator C_DeathAnimation(DeathType deathType) {
+    private IEnumerator C_DeathAnimation(DeathType deathType, Sprite enemyScreenshot, string deathReason) {
 
         float timer = Time.time;
 
@@ -148,7 +148,7 @@ public class CameraHolder : MonoBehaviour {
             yield return null;
         }
 
-        SceneLoader.instance.ShowDeathScreen();
+        SceneLoader.instance.ShowDeathScreen(enemyScreenshot, deathReason);
     }
 
     public IEnumerator C_Shake() {

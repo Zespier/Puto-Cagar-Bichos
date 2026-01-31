@@ -56,18 +56,18 @@ public class SceneLoader : MonoBehaviour {
         _isFading = false;
     }
 
-    public void ShowDeathScreen() {
+    public void ShowDeathScreen(Sprite enemyScreenshot, string deathReason) {
         if (!_isShowingDeathScreen) {
-            StartCoroutine(C_ShowDeathScreen());
+            StartCoroutine(C_ShowDeathScreen( enemyScreenshot, deathReason));
         }
     }
 
-    private IEnumerator C_ShowDeathScreen() {
+    private IEnumerator C_ShowDeathScreen(Sprite enemyScreenshot, string deathReason) {
         _isShowingDeathScreen = true;
 
         FadeIn();
         yield return new WaitForSeconds(1);
-        deathScreen.UpdateDeathScreen(default, default);
+        deathScreen.UpdateDeathScreen(enemyScreenshot, deathReason);
         deathScreen.Fade();
         yield return new WaitForSeconds(1);
 

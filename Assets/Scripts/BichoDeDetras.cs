@@ -8,6 +8,7 @@ public class BichoDeDetras : Aggro {
     public Transform hidePosition;
     public int totalFlashesNeeded = 3;
     public int _flashCounter;
+    public Sprite bichoDeDetrasDeathSprite;
 
     public static BichoDeDetras instance;
 
@@ -22,7 +23,7 @@ public class BichoDeDetras : Aggro {
             transform.position = Vector3.MoveTowards(transform.position, attackPosition.position, Time.deltaTime * (approachSpeed / aggroMultiplier[currentStage]));
 
             if (transform.position == attackPosition.position) {
-                CameraHolder.instance.DeathAnimation(DeathType.DebajoDeLaMesa);
+                CameraHolder.instance.DeathAnimation(DeathType.DebajoDeLaMesa, bichoDeDetrasDeathSprite, "Pulsa repetidamente el boton izquierdo para que se vaya");
             }
         }
     }
