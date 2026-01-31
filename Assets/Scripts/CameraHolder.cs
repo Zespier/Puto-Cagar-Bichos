@@ -42,7 +42,10 @@ public class CameraHolder : MonoBehaviour {
         playerInput.Enable();
 
         playerInput.Player.Interact.Enable();
-        playerInput.Player.Interact.started += Mask.instance.PutMask;
+        //playerInput.Player.Interact.started += Mask.instance.PutMask;
+
+        playerInput.Player.PutMaskOn.Enable();
+        playerInput.Player.PutMaskOn.started += Mask.instance.PutMask;
 
 
         playerInput.Player.Flashlight.Enable();
@@ -76,6 +79,9 @@ public class CameraHolder : MonoBehaviour {
 
         playerInput.Player.Interact.started -= Player.instance.ActivateFlashLight;
         playerInput.Player.Interact.Disable();
+
+        playerInput.Player.PutMaskOn.started -= Mask.instance.PutMask;
+        playerInput.Player.PutMaskOn.Disable();
 
         playerInput.Player.Flashlight.started -= Player.instance.ActivateFlashLight;
         playerInput.Player.Flashlight.canceled -= Player.instance.DeactivateFlashLight;
