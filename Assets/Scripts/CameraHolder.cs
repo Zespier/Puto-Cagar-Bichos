@@ -41,12 +41,14 @@ public class CameraHolder : MonoBehaviour {
     }
 
     private void Update() {
+        if (GameManager.GameState == GameState.Playing || GameManager.GameState == GameState.MaskOn) {
 
-        CameraForward();
+            CameraForward();
 
-        GetLookValue();
+            GetLookValue();
 
-        RotateCameraHolder();
+            RotateCameraHolder();
+        }
     }
 
     private void OnDisable() {

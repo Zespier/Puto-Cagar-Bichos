@@ -28,6 +28,7 @@ public class Mask : MonoBehaviour {
         c_PutMask = StartCoroutine(C_PutMask(Vector3.forward));
 
         isMaskOn = true;
+        GameManager.GameState = GameState.MaskOn;
     }
 
     public void RemoveMask(InputAction.CallbackContext context) {
@@ -41,6 +42,7 @@ public class Mask : MonoBehaviour {
         }
         c_PutMask = StartCoroutine(C_PutMask(Vector3.down));
         isMaskOn = false;
+
     }
 
     private IEnumerator C_PutMask(Vector3 direction) {

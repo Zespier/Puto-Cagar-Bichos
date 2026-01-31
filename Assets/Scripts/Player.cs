@@ -16,9 +16,11 @@ public class Player : MonoBehaviour {
         DeactivateFlashLight(default);
     }
 
-    public void ActivateFlashLight(InputAction.CallbackContext context) {
-        spotLight.gameObject.SetActive(true);
-        BichoDeDetras.instance.Flashed();
+    public void ActivateFlashLight(InputAction.CallbackContext context) {;
+        if (GameManager.GameState == GameState.Playing) {
+            spotLight.gameObject.SetActive(true);
+            BichoDeDetras.instance.Flashed();
+        }
     }
 
     public void DeactivateFlashLight(InputAction.CallbackContext context) {
