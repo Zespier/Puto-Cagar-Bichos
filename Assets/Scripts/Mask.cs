@@ -25,7 +25,7 @@ public class Mask : MonoBehaviour {
         if (c_PutMask != null) {
             StopCoroutine(c_PutMask);
         }
-        c_PutMask = StartCoroutine(C_PutMask(Vector3.down));
+        c_PutMask = StartCoroutine(C_PutMask(Vector3.forward));
 
         isMaskOn = true;
     }
@@ -39,7 +39,7 @@ public class Mask : MonoBehaviour {
         if (c_PutMask != null) {
             StopCoroutine(c_PutMask);
         }
-        c_PutMask = StartCoroutine(C_PutMask(Vector3.forward));
+        c_PutMask = StartCoroutine(C_PutMask(Vector3.down));
         isMaskOn = false;
     }
 

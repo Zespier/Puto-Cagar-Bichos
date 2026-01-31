@@ -35,6 +35,7 @@ public class BichoDeEnfrente : MonoBehaviour {
                     ChangePosition();
                     _killTimer = 0;
                     _hideTimer = 0;
+                    _timer = Time.time;
                 }
             }
 
