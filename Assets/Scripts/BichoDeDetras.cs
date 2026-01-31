@@ -1,6 +1,7 @@
+using System.Collections;
 using UnityEngine;
 
-public class BichoDeDetras : MonoBehaviour {
+public class BichoDeDetras : Aggro {
 
     public float approachSpeed = 0.5f;
     public Transform attackPosition;
@@ -16,6 +17,10 @@ public class BichoDeDetras : MonoBehaviour {
 
     private void Update() {
         transform.position = Vector3.MoveTowards(transform.position, attackPosition.position, Time.deltaTime * approachSpeed);
+
+        if (transform.position == attackPosition.position) {
+            CameraHolder.instance.DeathAnimation(DeathType.DebajoDeLaMesa);
+        }
     }
 
     public void Flashed() {
@@ -33,5 +38,6 @@ public class BichoDeDetras : MonoBehaviour {
 
     public void GoBackAndHide() {
         transform.position = hidePosition.position;
+        base.Hide();
     }
 }

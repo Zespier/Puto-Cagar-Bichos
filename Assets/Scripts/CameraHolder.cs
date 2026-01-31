@@ -13,6 +13,16 @@ public class CameraHolder : MonoBehaviour {
     public float cameraRotationLerpSpeed = 10f;
     private Vector2 _lookValue;
     public static PlayerInputs playerInput;
+    public Transform doorDeathLookValue;
+    public Transform debajoDeLaMesaDeathLookValue;
+    public Transform salaDeReunionesDeathLookValue;
+    public Transform teleDeathLookValue;
+    public float cameraDeathMoveSpeed = 30f;
+    public Transform actualCamera;
+    public float deathShakeDuration = 1.5f;
+    public float deathShakeMagnitude = 0.2f;
+
+    private bool _dying;
 
     public static CameraHolder instance;
 
@@ -42,6 +52,12 @@ public class CameraHolder : MonoBehaviour {
 
         playerInput.Player.ChangeHeight.Enable();
         playerInput.Player.ChangeHeight.started += Player.instance.Crouch;
+
+        playerInput.Player.RestartLevel.Enable();
+        playerInput.Player.RestartLevel.started += DeathScreen.instance.RestartLevel;
+
+        playerInput.Player.SerGay.Enable();
+        playerInput.Player.SerGay.started += DeathScreen.instance.SerGay;
     }
 
     private void Update() {
@@ -67,6 +83,12 @@ public class CameraHolder : MonoBehaviour {
 
         playerInput.Player.ChangeHeight.started -= Player.instance.Crouch;
         playerInput.Player.ChangeHeight.Disable();
+
+        playerInput.Player.RestartLevel.started -= DeathScreen.instance.RestartLevel;
+        playerInput.Player.RestartLevel.Disable();
+
+        playerInput.Player.SerGay.started -= DeathScreen.instance.SerGay;
+        playerInput.Player.SerGay.Disable();
     }
 
     public void CameraForward() {
@@ -98,4 +120,58 @@ public class CameraHolder : MonoBehaviour {
 
         _lookValue = playerInput.Player.Look.ReadValue<Vector2>();
     }
+
+    public void DeathAnimation(DeathType deathType) {
+        if (_dying) { return; }
+
+        GameManager.GameState = GameState.Dying;
+
+        StartCoroutine(C_DeathAnimation(deathType));
+    }
+
+    private IEnumerator C_DeathAnimation(DeathType deathType) {
+
+        float timer = Time.time;
+
+        Vector3 deathForward = deathType switch {
+            DeathType.Pasillo => doorDeathLookValue.forward,
+            DeathType.DebajoDeLaMesa => debajoDeLaMesaDeathLookValue.forward,
+            DeathType.SalaDeReuniones => salaDeReunionesDeathLookValue.forward,
+            DeathType.Tele => teleDeathLookValue.forward,
+            _ => throw new NotImplementedException(),
+        };
+
+        StartCoroutine(C_Shake());
+
+        while (Time.time - timer < 2) {
+            transform.forward = Vector3.Slerp(transform.forward, deathForward, Time.deltaTime * cameraDeathMoveSpeed);
+            yield return null;
+        }
+
+        SceneLoader.instance.ShowDeathScreen();
+    }
+
+    public IEnumerator C_Shake() {
+        Vector3 originalPos = Vector3.zero;
+
+        float timer = Time.time;
+
+        while (Time.time - timer < deathShakeDuration) {
+            float x = UnityEngine.Random.Range(-1f, 1f) * deathShakeMagnitude;
+            float y = UnityEngine.Random.Range(-1f, 1f) * deathShakeMagnitude;
+
+            actualCamera.localPosition = new Vector3(x, y, originalPos.z);
+
+            yield return null;
+        }
+
+        actualCamera.localPosition = originalPos;
+    }
+}
+
+public enum DeathType {
+    Pasillo,
+    DebajoDeLaMesa,
+    SalaDeReuniones,
+    Tele,
 }

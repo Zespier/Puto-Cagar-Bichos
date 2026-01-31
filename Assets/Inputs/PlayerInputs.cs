@@ -146,6 +146,24 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""RestartLevel"",
+                    ""type"": ""Button"",
+                    ""id"": ""ea9e268e-50c5-4548-8674-0c270994796f"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SerGay"",
+                    ""type"": ""Button"",
+                    ""id"": ""862e1d47-e888-4a3d-be8b-cff8507196ad"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""Crouch"",
                     ""type"": ""Button"",
                     ""id"": ""27c5f898-bc57-4ee1-8800-db469aca5fe3"",
@@ -444,6 +462,28 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""ChangeHeight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""962ca969-deb6-4e9b-b34f-0514c5c2e138"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""RestartLevel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""02d72a4c-ffc0-4a65-a7c3-b7a538f143a5"",
+                    ""path"": ""<Keyboard>/{Back}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""SerGay"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1136,6 +1176,8 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Flashlight = m_Player.FindAction("Flashlight", throwIfNotFound: true);
         m_Player_ChangeHeight = m_Player.FindAction("ChangeHeight", throwIfNotFound: true);
+        m_Player_RestartLevel = m_Player.FindAction("RestartLevel", throwIfNotFound: true);
+        m_Player_SerGay = m_Player.FindAction("SerGay", throwIfNotFound: true);
         m_Player_Crouch = m_Player.FindAction("Crouch", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Previous = m_Player.FindAction("Previous", throwIfNotFound: true);
@@ -1239,6 +1281,8 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Flashlight;
     private readonly InputAction m_Player_ChangeHeight;
+    private readonly InputAction m_Player_RestartLevel;
+    private readonly InputAction m_Player_SerGay;
     private readonly InputAction m_Player_Crouch;
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Previous;
@@ -1278,6 +1322,14 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/ChangeHeight".
         /// </summary>
         public InputAction @ChangeHeight => m_Wrapper.m_Player_ChangeHeight;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/RestartLevel".
+        /// </summary>
+        public InputAction @RestartLevel => m_Wrapper.m_Player_RestartLevel;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/SerGay".
+        /// </summary>
+        public InputAction @SerGay => m_Wrapper.m_Player_SerGay;
         /// <summary>
         /// Provides access to the underlying input action "Player/Crouch".
         /// </summary>
@@ -1338,6 +1390,12 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @ChangeHeight.started += instance.OnChangeHeight;
             @ChangeHeight.performed += instance.OnChangeHeight;
             @ChangeHeight.canceled += instance.OnChangeHeight;
+            @RestartLevel.started += instance.OnRestartLevel;
+            @RestartLevel.performed += instance.OnRestartLevel;
+            @RestartLevel.canceled += instance.OnRestartLevel;
+            @SerGay.started += instance.OnSerGay;
+            @SerGay.performed += instance.OnSerGay;
+            @SerGay.canceled += instance.OnSerGay;
             @Crouch.started += instance.OnCrouch;
             @Crouch.performed += instance.OnCrouch;
             @Crouch.canceled += instance.OnCrouch;
@@ -1379,6 +1437,12 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @ChangeHeight.started -= instance.OnChangeHeight;
             @ChangeHeight.performed -= instance.OnChangeHeight;
             @ChangeHeight.canceled -= instance.OnChangeHeight;
+            @RestartLevel.started -= instance.OnRestartLevel;
+            @RestartLevel.performed -= instance.OnRestartLevel;
+            @RestartLevel.canceled -= instance.OnRestartLevel;
+            @SerGay.started -= instance.OnSerGay;
+            @SerGay.performed -= instance.OnSerGay;
+            @SerGay.canceled -= instance.OnSerGay;
             @Crouch.started -= instance.OnCrouch;
             @Crouch.performed -= instance.OnCrouch;
             @Crouch.canceled -= instance.OnCrouch;
@@ -1733,6 +1797,20 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnChangeHeight(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "RestartLevel" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnRestartLevel(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "SerGay" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSerGay(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "Crouch" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>

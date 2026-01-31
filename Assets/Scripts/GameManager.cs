@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour {
         switch (gameState) {
             case GameState.Playing:
             case GameState.MaskOn:
+            case GameState.Dying:
                 Cursor.lockState = CursorLockMode.Locked;
                 break;
 
@@ -45,6 +46,7 @@ public class GameManager : MonoBehaviour {
             default:
                 break;
 
+            case GameState.Dying:
             case GameState.MaskOn:
                 Player.instance.DeactivateFlashLight(default);
                 break;
@@ -56,4 +58,5 @@ public enum GameState : byte {
     Playing,
     Paused,
     MaskOn,
+    Dying,
 }

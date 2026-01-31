@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BichoDeEnfrente : MonoBehaviour {
+public class BichoDeEnfrente : Aggro {
 
     public Transform hidePosition;
     public Transform huntingPosition;
@@ -13,19 +13,22 @@ public class BichoDeEnfrente : MonoBehaviour {
     private float _timer;
     private float _killTimer;
     private float _hideTimer;
+    private bool _playerDead;
 
     private void Awake() {
         _timer = Time.time;
     }
 
     private void Update() {
+        if (_playerDead) { return; }
 
         if (currentPositionIndex == 2) {
             if (!Mask.instance.isMaskOn) {
 
                 _killTimer += Time.deltaTime;
                 if (_killTimer >= timeToKill) {
-                    //MATAR
+                    _playerDead = true;
+                    CameraHolder.instance.DeathAnimation(DeathType.SalaDeReuniones);
                 }
 
             } else {
@@ -36,6 +39,7 @@ public class BichoDeEnfrente : MonoBehaviour {
                     _killTimer = 0;
                     _hideTimer = 0;
                     _timer = Time.time;
+                    base.Hide();
                 }
             }
 

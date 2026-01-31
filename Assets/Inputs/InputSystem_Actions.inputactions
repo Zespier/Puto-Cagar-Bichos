@@ -60,6 +60,24 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "RestartLevel",
+                    "type": "Button",
+                    "id": "ea9e268e-50c5-4548-8674-0c270994796f",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SerGay",
+                    "type": "Button",
+                    "id": "862e1d47-e888-4a3d-be8b-cff8507196ad",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Crouch",
                     "type": "Button",
                     "id": "27c5f898-bc57-4ee1-8800-db469aca5fe3",
@@ -358,6 +376,28 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "ChangeHeight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "962ca969-deb6-4e9b-b34f-0514c5c2e138",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "RestartLevel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "02d72a4c-ffc0-4a65-a7c3-b7a538f143a5",
+                    "path": "<Keyboard>/{Back}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "SerGay",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

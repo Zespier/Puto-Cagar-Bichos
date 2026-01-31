@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class BichoDelPasillo : MonoBehaviour {
+public class BichoDelPasillo : Aggro {
 
     public float approachSpeedd = 1f;
     public float hideSpeedd = 2f;
@@ -14,24 +14,28 @@ public class BichoDelPasillo : MonoBehaviour {
     public float timeToOpenTheDoor = 3;
     public float doorKillingAnimationTime = 0.2f;
 
-    private Vector3 _defaultForward;
+    private Vector3 _defaultUp;
     private float _openDoorTimer;
     private bool _killing;
-    private Vector3 _puertaDefaultUp;
+    private Quaternion _puertaDefaultForward;
 
     public static BichoDelPasillo instance;
 
     private void Awake() {
         if (!instance) { instance = this; }
 
-        _defaultForward = pomoDeLaPuerta.transform.forward;
-        _puertaDefaultUp = puerta.transform.up;
+        _defaultUp = pomoDeLaPuerta.up;
+        _puertaDefaultForward = puerta.rotation;
     }
 
     private void Update() {
         if (Player.instance.spotLight.gameObject.activeSelf && Mathf.Abs(Vector3.Angle(FlashLight.instance.transform.forward, transform.position - FlashLight.instance.transform.position)) < 50) {
 
             transform.position = Vector3.MoveTowards(transform.position, hidePosition.position, Time.deltaTime * hideSpeedd);
+
+            if (transform.position == hidePosition.position) {
+                base.Hide();
+            }
 
         } else {
             transform.position = Vector3.MoveTowards(transform.position, attackPosition.position, Time.deltaTime * approachSpeedd);
@@ -44,7 +48,7 @@ public class BichoDelPasillo : MonoBehaviour {
             _openDoorTimer = 0;
         }
 
-        pomoDeLaPuerta.forward = Vector3.Lerp(_defaultForward, pomoOrientation.forward, _openDoorTimer / timeToOpenTheDoor);
+        pomoDeLaPuerta.up = Vector3.Slerp(_defaultUp, pomoOrientation.up, _openDoorTimer / timeToOpenTheDoor);
 
         if (_openDoorTimer >= timeToOpenTheDoor) {
             DoorAnimationANDKILL();
@@ -64,12 +68,12 @@ public class BichoDelPasillo : MonoBehaviour {
 
         while (Time.time - timer < doorKillingAnimationTime) {
 
-            puerta.up = Vector3.Lerp(_puertaDefaultUp, puertaOrientation.up, (Time.time - timer) / doorKillingAnimationTime);
+            puerta.rotation = Quaternion.Slerp(_puertaDefaultForward, puertaOrientation.rotation, (Time.time - timer) / doorKillingAnimationTime);
             yield return null;
         }
 
-        puerta.up = puertaOrientation.up;
+        puerta.rotation = puertaOrientation.rotation;
 
-        //MATAR
+        CameraHolder.instance.DeathAnimation(DeathType.Pasillo);
     }
 }
