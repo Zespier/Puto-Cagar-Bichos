@@ -17,22 +17,26 @@ public class Mask : MonoBehaviour {
     }
 
     public void PutMask(InputAction.CallbackContext context) {
-        //if (GameManager.GameState != GameState.Playing) {
-        //    return;
-        //}
+        if (GameManager.GameState != GameState.Playing) {
+            if (isMaskOn) {
+                RemoveMask(default);
+                return;
+            }
+            return;
+        }
 
-        //if (isMaskOn) {
-        //    RemoveMask(default);
-        //    return;
-        //}
+        if (isMaskOn) {
+            RemoveMask(default);
+            return;
+        }
 
-        //if (c_PutMask != null) {
-        //    StopCoroutine(c_PutMask);
-        //}
-        //c_PutMask = StartCoroutine(C_PutMask(Vector3.forward));
+        if (c_PutMask != null) {
+            StopCoroutine(c_PutMask);
+        }
+        c_PutMask = StartCoroutine(C_PutMask(Vector3.forward));
 
-        //isMaskOn = true;
-        //GameManager.GameState = GameState.MaskOn;
+        isMaskOn = true;
+        GameManager.GameState = GameState.MaskOn;
     }
 
     public void RemoveMask(InputAction.CallbackContext context) {

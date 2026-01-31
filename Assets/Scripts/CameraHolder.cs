@@ -38,6 +38,10 @@ public class CameraHolder : MonoBehaviour {
         playerInput.Player.Flashlight.Enable();
         playerInput.Player.Flashlight.started += Player.instance.ActivateFlashLight;
         playerInput.Player.Flashlight.canceled += Player.instance.DeactivateFlashLight;
+
+
+        playerInput.Player.ChangeHeight.Enable();
+        playerInput.Player.ChangeHeight.started += Player.instance.Crouch;
     }
 
     private void Update() {
@@ -60,6 +64,9 @@ public class CameraHolder : MonoBehaviour {
         playerInput.Player.Flashlight.started -= Player.instance.ActivateFlashLight;
         playerInput.Player.Flashlight.canceled -= Player.instance.DeactivateFlashLight;
         playerInput.Player.Flashlight.Disable();
+
+        playerInput.Player.ChangeHeight.started -= Player.instance.Crouch;
+        playerInput.Player.ChangeHeight.Disable();
     }
 
     public void CameraForward() {

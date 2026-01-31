@@ -19,6 +19,10 @@ public class GameManager : MonoBehaviour {
         debugState = _gameState;
     }
 
+    private void Start() {
+        GameState = GameState.Playing;
+    }
+
     public static void ManageMouse(GameState gameState) {
 
         switch (gameState) {
@@ -39,7 +43,6 @@ public class GameManager : MonoBehaviour {
             case GameState.Playing:
             case GameState.Paused:
             default:
-                Player.instance.ActivateFlashLight(default);
                 break;
 
             case GameState.MaskOn:
