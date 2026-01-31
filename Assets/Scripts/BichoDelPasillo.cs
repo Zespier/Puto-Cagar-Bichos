@@ -41,7 +41,7 @@ public class BichoDelPasillo : Aggro {
             }
 
         } else {
-            transform.position = Vector3.MoveTowards(transform.position, attackPosition.position, Time.deltaTime * approachSpeedd);
+            transform.position = Vector3.MoveTowards(transform.position, attackPosition.position, Time.deltaTime * (approachSpeedd / aggroMultiplier[currentStage]));
         }
 
         if (transform.position == attackPosition.position) {

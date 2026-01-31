@@ -51,7 +51,7 @@ public class BichoDeEnfrente : Aggro {
             }
 
         } else {
-            if (Time.time - _timer > timeToChangePosition) {
+            if (Time.time - _timer > (timeToChangePosition * aggroMultiplier[currentStage])) {
                 _timer = Time.time;
                 currentPositionIndex++;
                 ChangePosition();

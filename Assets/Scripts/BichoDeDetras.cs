@@ -19,7 +19,7 @@ public class BichoDeDetras : Aggro {
         base.Update();
         if (state == EnemyState.Hunting) {
 
-            transform.position = Vector3.MoveTowards(transform.position, attackPosition.position, Time.deltaTime * approachSpeed);
+            transform.position = Vector3.MoveTowards(transform.position, attackPosition.position, Time.deltaTime * (approachSpeed / aggroMultiplier[currentStage]));
 
             if (transform.position == attackPosition.position) {
                 CameraHolder.instance.DeathAnimation(DeathType.DebajoDeLaMesa);
