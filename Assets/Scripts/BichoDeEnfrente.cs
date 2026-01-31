@@ -19,11 +19,6 @@ public class BichoDeEnfrente : MonoBehaviour {
     }
 
     private void Update() {
-        if (Time.time - _timer > timeToChangePosition) {
-            _timer = Time.time;
-            currentPositionIndex++;
-            ChangePosition();
-        }
 
         if (currentPositionIndex == 2) {
             if (!Mask.instance.isMaskOn) {
@@ -41,6 +36,13 @@ public class BichoDeEnfrente : MonoBehaviour {
                     _killTimer = 0;
                     _hideTimer = 0;
                 }
+            }
+
+        } else {
+            if (Time.time - _timer > timeToChangePosition) {
+                _timer = Time.time;
+                currentPositionIndex++;
+                ChangePosition();
             }
         }
     }
