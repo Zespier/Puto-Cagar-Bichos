@@ -3,7 +3,17 @@ guid: d4636fea079968c46ad4b5079176062c
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mascara
+    second: {fileID: 2100000, guid: 4769ca426061e13489cc9b6139b7ecb9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MascaraBack
+    second: {fileID: 2100000, guid: 4f53e829aee467d449ebea0481b3260f, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

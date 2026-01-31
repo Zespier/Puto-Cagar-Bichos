@@ -59,8 +59,8 @@ public class Mask : MonoBehaviour {
     }
 
     private IEnumerator C_PutMask(Vector3 direction) {
-        while (transform.forward != (direction == Vector3.down ? -CameraHolder.instance.transform.up : CameraHolder.instance.transform.forward)) {
-            transform.forward = Vector3.Slerp(transform.forward, direction == Vector3.down ? -CameraHolder.instance.transform.up : CameraHolder.instance.transform.forward, Time.deltaTime * 10f);
+        while (transform.forward != (direction == Vector3.down ? -CameraHolder.instance.transform.forward : CameraHolder.instance.transform.forward)) {
+            transform.forward = Vector3.Slerp(transform.forward, direction == Vector3.down ? -CameraHolder.instance.transform.forward : CameraHolder.instance.transform.forward, Time.deltaTime * 15f);
             yield return null;
         }
     }
