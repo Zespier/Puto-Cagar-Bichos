@@ -4,6 +4,7 @@ public class BichoDeEnfrente : Aggro {
 
     public Transform hidePosition;
     public Transform huntingPosition;
+    public Transform huntingPosition2;
     public Transform attackPosition;
     public float timeToChangePosition = 2;
     public int currentPositionIndex;
@@ -30,7 +31,7 @@ public class BichoDeEnfrente : Aggro {
         }
 
 
-        if (currentPositionIndex == 2) {
+        if (currentPositionIndex == 3) {
             if (!Mask.instance.isMaskOn) {
 
                 _killTimer += Time.deltaTime;
@@ -69,6 +70,9 @@ public class BichoDeEnfrente : Aggro {
                 transform.position = huntingPosition.position;
                 break;
             case 2:
+                transform.position = huntingPosition2.position;
+                break;
+            case 3:
                 transform.position = attackPosition.position;
                 break;
 
