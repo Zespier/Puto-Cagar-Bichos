@@ -9,6 +9,9 @@ public class BichoDeDetras : Aggro {
     public int totalFlashesNeeded = 3;
     public int _flashCounter;
     public Sprite bichoDeDetrasDeathSprite;
+    public bool dejarDeDarPorCulo;
+
+    private bool _isWaitingForPlayerToStopLookingAtTheScreen;
 
     public static BichoDeDetras instance;
 
@@ -18,12 +21,14 @@ public class BichoDeDetras : Aggro {
 
     protected override void Update() {
         base.Update();
-        if (state == EnemyState.Hunting) {
+        if (!dejarDeDarPorCulo && state == EnemyState.Hunting) {
 
             transform.position = Vector3.MoveTowards(transform.position, attackPosition.position, Time.deltaTime * (approachSpeed / aggroMultiplier[currentStage]));
 
             if (transform.position == attackPosition.position) {
-                CameraHolder.instance.DeathAnimation(DeathType.DebajoDeLaMesa, bichoDeDetrasDeathSprite, "Pulsa repetidamente el boton izquierdo para que se vaya");
+                if (!_isWaitingForPlayerToStopLookingAtTheScreen) {
+                    StartCoroutine(C_WaitForPlayerToStopLookingAtTheScreen());
+                }
             }
         }
     }
@@ -46,5 +51,15 @@ public class BichoDeDetras : Aggro {
     public void GoBackAndHide() {
         transform.position = hidePosition.position;
         base.Hide();
+    }
+
+    private IEnumerator C_WaitForPlayerToStopLookingAtTheScreen() {
+        _isWaitingForPlayerToStopLookingAtTheScreen = true;
+
+        while (GameManager.GameState == GameState.OnPc) {
+            yield return null;
+        }
+
+        CameraHolder.instance.DeathAnimation(DeathType.DebajoDeLaMesa, bichoDeDetrasDeathSprite, "Pulsa repetidamente el boton izquierdo para que se vaya");
     }
 }

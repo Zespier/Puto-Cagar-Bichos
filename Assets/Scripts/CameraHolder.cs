@@ -21,8 +21,12 @@ public class CameraHolder : MonoBehaviour {
     public Transform actualCamera;
     public float deathShakeDuration = 1.5f;
     public float deathShakeMagnitude = 0.2f;
+    public Transform pcPosition;
+    public float timeToGoToPc = 0.5f;
 
     private bool _dying;
+    private bool _movingCameraToPc;
+    private Vector3 _defaultPosition;
 
     public static CameraHolder instance;
 
@@ -36,13 +40,14 @@ public class CameraHolder : MonoBehaviour {
             target.forward = -Vector3.forward;
             targetHelper.forward = -Vector3.forward;
         }
+        _defaultPosition = transform.position;
     }
 
     private void OnEnable() {
         playerInput.Enable();
 
         playerInput.Player.Interact.Enable();
-        //playerInput.Player.Interact.started += Mask.instance.PutMask;
+        playerInput.Player.Interact.started += Player.instance.Interact;
 
         playerInput.Player.PutMaskOn.Enable();
         playerInput.Player.PutMaskOn.started += Mask.instance.PutMask;
@@ -71,13 +76,15 @@ public class CameraHolder : MonoBehaviour {
             GetLookValue();
 
             RotateCameraHolder();
+        } else if (GameManager.GameState == GameState.OnPc) {
+
         }
     }
 
     private void OnDisable() {
         playerInput.Disable();
 
-        playerInput.Player.Interact.started -= Player.instance.ActivateFlashLight;
+        playerInput.Player.Interact.started -= Player.instance.Interact;
         playerInput.Player.Interact.Disable();
 
         playerInput.Player.PutMaskOn.started -= Mask.instance.PutMask;
@@ -172,6 +179,58 @@ public class CameraHolder : MonoBehaviour {
         }
 
         actualCamera.localPosition = originalPos;
+    }
+
+    public void GoToPc() {
+        if (!_movingCameraToPc) {
+            StartCoroutine(C_GoToPc());
+        }
+    }
+
+    private IEnumerator C_GoToPc() {
+        _movingCameraToPc = true;
+
+        float timer = Time.time;
+
+        Vector3 initialPosition = transform.position;
+        Vector3 initialForward = targetHelper.forward;
+
+        while (transform.position != pcPosition.position) {
+            transform.position = Vector3.Lerp(initialPosition, pcPosition.position, (Time.time - timer) / timeToGoToPc);
+            targetHelper.forward = Vector3.Slerp(initialForward, -pcPosition.forward, (Time.time - timer) / timeToGoToPc);
+            yield return null;
+        }
+
+        Ordenador.instance.ActiveCanvasGroup(true);
+
+        _movingCameraToPc = false;
+    }
+
+    public void StopLookingAtPc() {
+        if (!_movingCameraToPc) {
+            StartCoroutine(C_StopLookingAtPc());
+        }
+    }
+
+    private IEnumerator C_StopLookingAtPc() {
+        _movingCameraToPc = true;
+
+        Ordenador.instance.ActiveCanvasGroup(false);
+
+        float timer = Time.time;
+
+        Vector3 initialPosition = transform.position;
+
+        while (transform.position != _defaultPosition) {
+            transform.position = Vector3.Lerp(initialPosition, _defaultPosition, (Time.time - timer) / timeToGoToPc);
+            yield return null;
+        }
+
+        Player.instance.isCrouched = true;
+
+        GameManager.GameState = GameState.Playing;
+
+        _movingCameraToPc = false;
     }
 }
 

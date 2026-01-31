@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class MainMenuSpotLightWithGlitter : MonoBehaviour {
+public class LightWithGlitter : MonoBehaviour {
 
     public Light spotLight;
     public float glitterIntensityMultiplier = 0.6f;

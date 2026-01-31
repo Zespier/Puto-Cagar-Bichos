@@ -14,11 +14,13 @@ public class BichoDelPasillo : Aggro {
     public float timeToOpenTheDoor = 3;
     public float doorKillingAnimationTime = 0.2f;
     public Sprite bichoDelPasilloDeathSprite;
+    public bool dejarDeDarPorCulo;
 
     private Vector3 _defaultUp;
     private float _openDoorTimer;
     private bool _killing;
     private Quaternion _puertaDefaultForward;
+    private bool _isWaitingForPlayerToStopLookingAtTheScreen;
 
     public static BichoDelPasillo instance;
 
@@ -32,6 +34,7 @@ public class BichoDelPasillo : Aggro {
     protected override void Update() {
         base.Update();
         if (state == EnemyState.Hiding) { return; }
+        if (dejarDeDarPorCulo) { return; }
 
         if (Player.instance.spotLight.gameObject.activeSelf && Mathf.Abs(Vector3.Angle(FlashLight.instance.transform.forward, transform.position - FlashLight.instance.transform.position)) < 50) {
 
@@ -55,8 +58,19 @@ public class BichoDelPasillo : Aggro {
         pomoDeLaPuerta.up = Vector3.Slerp(_defaultUp, pomoOrientation.up, _openDoorTimer / timeToOpenTheDoor);
 
         if (_openDoorTimer >= timeToOpenTheDoor) {
-            DoorAnimationANDKILL();
+            if (!_isWaitingForPlayerToStopLookingAtTheScreen) {
+                StartCoroutine(C_WaitForPlayerToStopLookingAtTheScreen());
+            }
         }
+    }
+
+    private IEnumerator C_WaitForPlayerToStopLookingAtTheScreen() {
+        _isWaitingForPlayerToStopLookingAtTheScreen = true;
+        while (GameManager.GameState == GameState.OnPc) {
+            yield return null;
+        }
+
+        DoorAnimationANDKILL();
     }
 
     public void DoorAnimationANDKILL() {

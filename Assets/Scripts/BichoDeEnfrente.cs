@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class BichoDeEnfrente : Aggro {
@@ -11,11 +12,13 @@ public class BichoDeEnfrente : Aggro {
     public float timeToKill = 5;
     public float timeToHideWithMask = 2f;
     public Sprite bichoDeEnfrenteDeathSprite;
+    public bool dejarDeDarPorCulo;
 
     private float _timer;
     private float _killTimer;
     private float _hideTimer;
     private bool _playerDead;
+    private bool _isWaitingForPlayerToStopLookingAtTheScreen;
 
     private void Awake() {
         _timer = Time.time;
@@ -24,6 +27,7 @@ public class BichoDeEnfrente : Aggro {
     protected override void Update() {
         base.Update();
         if (_playerDead) { return; }
+        if (dejarDeDarPorCulo) { return; }
 
         if (state == EnemyState.Hiding) {
             _timer = Time.time;
@@ -36,8 +40,9 @@ public class BichoDeEnfrente : Aggro {
 
                 _killTimer += Time.deltaTime;
                 if (_killTimer >= timeToKill) {
-                    _playerDead = true;
-                    CameraHolder.instance.DeathAnimation(DeathType.SalaDeReuniones, bichoDeEnfrenteDeathSprite, "´No tiene buena vista, ponte una máscara con el botón izquierdo para hacerte pasar por uno de ellos.");
+                    if (!_isWaitingForPlayerToStopLookingAtTheScreen) {
+                        StartCoroutine(C_WaitForPlayerToStopLookingAtTheScreen());
+                    }
                 }
 
             } else {
@@ -59,6 +64,16 @@ public class BichoDeEnfrente : Aggro {
                 ChangePosition();
             }
         }
+    }
+
+    private IEnumerator C_WaitForPlayerToStopLookingAtTheScreen() {
+        _isWaitingForPlayerToStopLookingAtTheScreen = true;
+        while (GameManager.GameState == GameState.OnPc) {
+            yield return null;
+        }
+
+        _playerDead = true;
+        CameraHolder.instance.DeathAnimation(DeathType.SalaDeReuniones, bichoDeEnfrenteDeathSprite, "´No tiene buena vista, ponte una máscara con el botón izquierdo para hacerte pasar por uno de ellos.");
     }
 
     private void ChangePosition() {

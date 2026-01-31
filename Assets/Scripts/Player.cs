@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour {
 
+    public bool dejarDeDarPorCulo;
     public bool onValidateCrouched;
     public bool onValidateStandUp;
     public Light spotLight;
@@ -83,6 +84,23 @@ public class Player : MonoBehaviour {
         }
         c_ChangeHeight = StartCoroutine(C_ChangeHeight(standUpHeight));
         isCrouched = false;
+    }
+
+    public void Interact(InputAction.CallbackContext context) {
+        if (dejarDeDarPorCulo) {
+            return;
+        }
+
+        if (GameManager.GameState == GameState.Playing) {
+
+            RaycastHit[] hits = Physics.RaycastAll(CameraHolder.instance.transform.position, CameraHolder.instance.transform.forward);
+
+            for (int i = 0; i < hits.Length; i++) {
+                if (hits[i].collider.CompareTag("Ordenador")) {
+                    CameraHolder.instance.GoToPc();
+                }
+            }
+        }
     }
 
     private IEnumerator C_ChangeHeight(float height) {
