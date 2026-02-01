@@ -1996,10 +1996,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2058084647}
     m_Modifications:
-    - target: {fileID: -7511558181221131132, guid: 9ab18eb4f4193354fb9aed4e8a577272, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 3622305703ac0314da1201324091e7b4, type: 2}
     - target: {fileID: -8679921383154817045, guid: d4636fea079968c46ad4b5079176062c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.4
@@ -2072,6 +2068,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 558fce679b7ec374b8cb56de2f4a9b7c, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 9ab18eb4f4193354fb9aed4e8a577272, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3622305703ac0314da1201324091e7b4, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2907,10 +2907,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1708917611}
     m_Modifications:
-    - target: {fileID: -7511558181221131132, guid: 9ab18eb4f4193354fb9aed4e8a577272, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 3622305703ac0314da1201324091e7b4, type: 2}
     - target: {fileID: -8679921383154817045, guid: d4636fea079968c46ad4b5079176062c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.4
@@ -2979,6 +2975,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 558fce679b7ec374b8cb56de2f4a9b7c, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 9ab18eb4f4193354fb9aed4e8a577272, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3622305703ac0314da1201324091e7b4, type: 2}
     m_RemovedComponents:
     - {fileID: 5866666021909216657, guid: d4636fea079968c46ad4b5079176062c, type: 3}
     m_RemovedGameObjects: []
@@ -4682,10 +4682,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 61008244}
     m_Modifications:
-    - target: {fileID: -7511558181221131132, guid: 9ab18eb4f4193354fb9aed4e8a577272, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 3622305703ac0314da1201324091e7b4, type: 2}
     - target: {fileID: -8679921383154817045, guid: d4636fea079968c46ad4b5079176062c, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.1
@@ -4754,6 +4750,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 558fce679b7ec374b8cb56de2f4a9b7c, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 9ab18eb4f4193354fb9aed4e8a577272, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3622305703ac0314da1201324091e7b4, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5372,10 +5372,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 424512577}
     m_Modifications:
-    - target: {fileID: -7511558181221131132, guid: 9ab18eb4f4193354fb9aed4e8a577272, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 3622305703ac0314da1201324091e7b4, type: 2}
     - target: {fileID: -8679921383154817045, guid: d4636fea079968c46ad4b5079176062c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.8
@@ -5444,6 +5440,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 558fce679b7ec374b8cb56de2f4a9b7c, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 9ab18eb4f4193354fb9aed4e8a577272, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3622305703ac0314da1201324091e7b4, type: 2}
     m_RemovedComponents:
     - {fileID: 5866666021909216657, guid: d4636fea079968c46ad4b5079176062c, type: 3}
     m_RemovedGameObjects: []
