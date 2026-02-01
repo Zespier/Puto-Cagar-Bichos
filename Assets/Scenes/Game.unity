@@ -4043,63 +4043,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 267096330169876738, guid: 02ec874af7e89704a880f20b370d6ab9, type: 3}
-      propertyPath: m_Alpha
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 267096330169876738, guid: 02ec874af7e89704a880f20b370d6ab9, type: 3}
-      propertyPath: m_Interactable
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 267096330169876738, guid: 02ec874af7e89704a880f20b370d6ab9, type: 3}
-      propertyPath: m_BlocksRaycasts
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3978345352125098646, guid: 02ec874af7e89704a880f20b370d6ab9, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: e90644d5931c49141855db16eeb4b57b, type: 2}
-    - target: {fileID: 3978345352125098646, guid: 02ec874af7e89704a880f20b370d6ab9, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -4871057986829440806, guid: e90644d5931c49141855db16eeb4b57b, type: 2}
-    - target: {fileID: 3978345352125098646, guid: 02ec874af7e89704a880f20b370d6ab9, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5179222645623509465, guid: 02ec874af7e89704a880f20b370d6ab9, type: 3}
-      propertyPath: m_text
-      value: "No dejes que abra la puerta. Manten (boton derecho) para \napuntarle
-        con la linterna y asustarle"
-      objectReference: {fileID: 0}
-    - target: {fileID: 5179222645623509465, guid: 02ec874af7e89704a880f20b370d6ab9, type: 3}
-      propertyPath: m_fontSize
-      value: 36
-      objectReference: {fileID: 0}
-    - target: {fileID: 5179222645623509465, guid: 02ec874af7e89704a880f20b370d6ab9, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: e90644d5931c49141855db16eeb4b57b, type: 2}
-    - target: {fileID: 5179222645623509465, guid: 02ec874af7e89704a880f20b370d6ab9, type: 3}
-      propertyPath: m_fontSizeMax
-      value: 36
-      objectReference: {fileID: 0}
-    - target: {fileID: 5179222645623509465, guid: 02ec874af7e89704a880f20b370d6ab9, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -4871057986829440806, guid: e90644d5931c49141855db16eeb4b57b, type: 2}
-    - target: {fileID: 5179222645623509465, guid: 02ec874af7e89704a880f20b370d6ab9, type: 3}
-      propertyPath: m_enableAutoSizing
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5179222645623509465, guid: 02ec874af7e89704a880f20b370d6ab9, type: 3}
-      propertyPath: m_HorizontalAlignment
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5179222645623509465, guid: 02ec874af7e89704a880f20b370d6ab9, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6257044477668711952, guid: 02ec874af7e89704a880f20b370d6ab9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4143,34 +4086,6 @@ PrefabInstance:
     - target: {fileID: 6503950152582231250, guid: 02ec874af7e89704a880f20b370d6ab9, type: 3}
       propertyPath: m_Name
       value: CANVAS + SceneLoader
-      objectReference: {fileID: 0}
-    - target: {fileID: 6627460886892419287, guid: 02ec874af7e89704a880f20b370d6ab9, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: e90644d5931c49141855db16eeb4b57b, type: 2}
-    - target: {fileID: 6627460886892419287, guid: 02ec874af7e89704a880f20b370d6ab9, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -4871057986829440806, guid: e90644d5931c49141855db16eeb4b57b, type: 2}
-    - target: {fileID: 6627460886892419287, guid: 02ec874af7e89704a880f20b370d6ab9, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8975507234633004071, guid: 02ec874af7e89704a880f20b370d6ab9, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 1139.7285
-      objectReference: {fileID: 0}
-    - target: {fileID: 8975507234633004071, guid: 02ec874af7e89704a880f20b370d6ab9, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 201.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 8975507234633004071, guid: 02ec874af7e89704a880f20b370d6ab9, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 326.3018
-      objectReference: {fileID: 0}
-    - target: {fileID: 8975507234633004071, guid: 02ec874af7e89704a880f20b370d6ab9, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -439.13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
