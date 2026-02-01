@@ -289,6 +289,40 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 170367879}
   m_CullTransparentMesh: 1
+--- !u!1 &174132311 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3417511705784040557, guid: 02ec874af7e89704a880f20b370d6ab9, type: 3}
+  m_PrefabInstance: {fileID: 1874546919427031908}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &174132314 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7427140815196424977, guid: 02ec874af7e89704a880f20b370d6ab9, type: 3}
+  m_PrefabInstance: {fileID: 1874546919427031908}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174132311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &174132316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174132311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ff58f91b494834419b6a3da2ae14d0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 174132314}
+  brokenSprite: {fileID: 21300000, guid: 2c424ea5b70f6e84589739012ac05540, type: 3}
+  fixedSprite: {fileID: 21300000, guid: d452307a24901da47ab04db10d59b09e, type: 3}
+  holdColor: {r: 0.62352943, g: 0.62352943, b: 0.62352943, a: 1}
+  indicativeText: {fileID: 1268230399}
+  timeToFix: 3
 --- !u!1 &212547122
 GameObject:
   m_ObjectHideFlags: 0
@@ -1380,6 +1414,9 @@ MonoBehaviour:
   glitterActivate: {fileID: 0}
   glitterdeActivate: {fileID: 0}
   lastMinuteLoopSound: {fileID: 0}
+  changeChannelAudioSource: {fileID: 0}
+  changeChannelClip: {fileID: 0}
+  randomPitch: 0.08
 --- !u!1 &669116788
 GameObject:
   m_ObjectHideFlags: 0
@@ -3069,6 +3106,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7554268663034207236, guid: 60f7525bd924fe1409fdf0e8a498cc1d, type: 3}
   m_PrefabInstance: {fileID: 4964217181904625010}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1268230399 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1166034027280728595, guid: 02ec874af7e89704a880f20b370d6ab9, type: 3}
+  m_PrefabInstance: {fileID: 1874546919427031908}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1270945458
 GameObject:
   m_ObjectHideFlags: 0
@@ -5404,7 +5452,7 @@ Transform:
   m_GameObject: {fileID: 1956858157}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.2728891, y: 1.2306882, z: -2.668}
+  m_LocalPosition: {x: -1.2728891, y: 1.2306882, z: -2.252}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -6446,6 +6494,42 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1166034027280728595, guid: 02ec874af7e89704a880f20b370d6ab9, type: 3}
+      propertyPath: m_text
+      value: 100%
+      objectReference: {fileID: 0}
+    - target: {fileID: 1166034027280728595, guid: 02ec874af7e89704a880f20b370d6ab9, type: 3}
+      propertyPath: m_fontSize
+      value: 54.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 1166034027280728595, guid: 02ec874af7e89704a880f20b370d6ab9, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: e90644d5931c49141855db16eeb4b57b, type: 2}
+    - target: {fileID: 1166034027280728595, guid: 02ec874af7e89704a880f20b370d6ab9, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 54.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 1166034027280728595, guid: 02ec874af7e89704a880f20b370d6ab9, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -4871057986829440806, guid: e90644d5931c49141855db16eeb4b57b, type: 2}
+    - target: {fileID: 1166034027280728595, guid: 02ec874af7e89704a880f20b370d6ab9, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1667063360968870548, guid: 02ec874af7e89704a880f20b370d6ab9, type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1667063360968870548, guid: 02ec874af7e89704a880f20b370d6ab9, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1667063360968870548, guid: 02ec874af7e89704a880f20b370d6ab9, type: 3}
+      propertyPath: m_BlocksRaycasts
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6257044477668711952, guid: 02ec874af7e89704a880f20b370d6ab9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -6490,10 +6574,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: CANVAS + SceneLoader
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7427140815196424977, guid: 02ec874af7e89704a880f20b370d6ab9, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7427140815196424977, guid: 02ec874af7e89704a880f20b370d6ab9, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7427140815196424977, guid: 02ec874af7e89704a880f20b370d6ab9, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6736697977830674183, guid: 02ec874af7e89704a880f20b370d6ab9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3417511705784040557, guid: 02ec874af7e89704a880f20b370d6ab9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 174132316}
   m_SourcePrefab: {fileID: 100100000, guid: 02ec874af7e89704a880f20b370d6ab9, type: 3}
 --- !u!1001 &4741162191009949886
 PrefabInstance:

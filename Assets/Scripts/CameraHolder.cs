@@ -200,10 +200,10 @@ public class CameraHolder : MonoBehaviour {
     }
 
     public void GoToPc() {
-        if (transform.position == pcPosition.position) {
-            StopLookingAtPc();
-            return;
-        }
+        //if (transform.position == pcPosition.position) {
+        //    StopLookingAtPc();
+        //    return;
+        //}
 
         if (!_movingCameraToPc) {
             StartCoroutine(C_GoToPc());
