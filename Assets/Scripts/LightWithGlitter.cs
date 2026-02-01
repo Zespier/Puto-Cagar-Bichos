@@ -41,6 +41,7 @@ public class LightWithGlitter : MonoBehaviour {
         for (int i = 0; i < lightsToTurnOffWithGlitter.Count; i++) {
             lightsToTurnOffWithGlitter[i].enabled = true;
         }
+        SoundManager.instance.PlayGlitterActivate();
 
         StartCoroutine(C_RecoverIntensity());
     }
@@ -56,6 +57,8 @@ public class LightWithGlitter : MonoBehaviour {
         for (int i = 0; i < lightsToTurnOffWithGlitter.Count; i++) {
             lightsToTurnOffWithGlitter[i].enabled = false;
         }
+        SoundManager.instance.PlayGlitterDeactivate();
+
 
         _glittered = false;
         _timerGlitter = 0;
@@ -69,6 +72,8 @@ public class LightWithGlitter : MonoBehaviour {
             for (int i = 0; i < lightsToTurnOffWithGlitter.Count; i++) {
                 lightsToTurnOffWithGlitter[i].enabled = true;
             }
+            SoundManager.instance.PlayGlitterActivate();
+
             StartCoroutine(C_RecoverIntensity());
         } else {
             _randomNumberOfTimes = Random.Range(1, maxNumberOfTimes + 1);

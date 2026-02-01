@@ -25,6 +25,7 @@ public class CameraHolder : MonoBehaviour {
     public Transform pcPosition;
     public float timeToGoToPc = 0.5f;
     public Animator animator;
+    public float jumpscareSpeed = 15f;
 
     private bool _dying;
     private bool _movingCameraToPc;
@@ -136,15 +137,15 @@ public class CameraHolder : MonoBehaviour {
         _lookValue = playerInput.Player.Look.ReadValue<Vector2>();
     }
 
-    public void DeathAnimation(DeathType deathType, Sprite enemyScreenshot, string deathReason) {
+    public void DeathAnimation(DeathType deathType, Sprite enemyScreenshot, string deathReason, Transform enemyTransform, string jumpscare) {
         if (_dying) { return; }
 
         GameManager.GameState = GameState.Dying;
 
-        StartCoroutine(C_DeathAnimation(deathType, enemyScreenshot, deathReason));
+        StartCoroutine(C_DeathAnimation(deathType, enemyScreenshot, deathReason, enemyTransform, jumpscare));
     }
 
-    private IEnumerator C_DeathAnimation(DeathType deathType, Sprite enemyScreenshot, string deathReason) {
+    private IEnumerator C_DeathAnimation(DeathType deathType, Sprite enemyScreenshot, string deathReason, Transform enemyTransform, string jumpscare) {
 
         float timer = Time.time;
 
@@ -158,27 +159,23 @@ public class CameraHolder : MonoBehaviour {
 
         StartCoroutine(C_Shake());
 
-
-        while (Time.time - timer < 1) {
+        //Bicho se acerca
+        timer = Time.time;
+        while (Time.time - timer < 1f) {
+            //Movemos al enemigo a la camara
+            //transform.forward = Vector3.Slerp(transform.forward, deathForward, Time.deltaTime * cameraDeathMoveSpeed);
+            enemyTransform.position = Vector3.MoveTowards(enemyTransform.position, transform.position + (enemyTransform.position - transform.position).normalized * 3, Time.deltaTime * jumpscareSpeed);
             transform.forward = Vector3.Slerp(transform.forward, deathForward, Time.deltaTime * cameraDeathMoveSpeed);
             yield return null;
         }
 
-        //Bicho se acerca
-        timer = Time.time;
-        while (Time.time - timer < 0.3f) {
-            //Movemos al enemigo a la camara
-            //transform.forward = Vector3.Slerp(transform.forward, deathForward, Time.deltaTime * cameraDeathMoveSpeed);
-            yield return null;
-        }
-
-
         //Mascara animation
         animator.GetComponent<Image>().enabled = true;
-        animator.Play("Jumpscare");
+        animator.Play(jumpscare);
         timer = Time.time;
-        while (Time.time - timer < 0.5f) {
+        while (Time.time - timer < 2) {
             //transform.forward = Vector3.Slerp(transform.forward, deathForward, Time.deltaTime * cameraDeathMoveSpeed);
+            transform.forward = Vector3.Slerp(transform.forward, deathForward, Time.deltaTime * cameraDeathMoveSpeed);
             yield return null;
         }
 

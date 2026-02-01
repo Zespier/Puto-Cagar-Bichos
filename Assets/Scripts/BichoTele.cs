@@ -86,6 +86,6 @@ public class BichoTele : Aggro {
         }
 
         _playerDead = true;
-        CameraHolder.instance.DeathAnimation(DeathType.Tele, bichoTeleDeathSprite, "Cambia de canal para vigilarle (boton izquierdo)\r\nNo dejes que la barra llegue al final.");
+        CameraHolder.instance.DeathAnimation(DeathType.Tele, bichoTeleDeathSprite, "Cambia de canal para vigilarle (boton izquierdo)\r\nNo dejes que la barra llegue al final.", transform, "JumpscareTele");
     }
 }
