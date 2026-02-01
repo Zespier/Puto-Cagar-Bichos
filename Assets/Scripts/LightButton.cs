@@ -12,6 +12,9 @@ public class LightButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public TMP_Text indicativeText;
     public float timeToFix = 3;
     public LightThatDies lightThatDies;
+    public Image bombilla;
+    public Sprite bombillaRota;
+    public Sprite bombillaArreglada;
 
     private bool _holding;
     private float _timerToFix;
@@ -22,6 +25,7 @@ public class LightButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     private void Update() {
 
         image.sprite = _timerToFix < timeToFix ? brokenSprite : fixedSprite;
+        bombilla.sprite = _timerToFix < timeToFix ? bombillaRota : bombillaArreglada;
         indicativeText.text = _timerToFix < timeToFix ? "ROTO" : "ACTIVO";
 
         if (!_recovered && _timerToFix >= timeToFix) {
