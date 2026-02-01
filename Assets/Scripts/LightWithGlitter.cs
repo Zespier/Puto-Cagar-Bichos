@@ -39,7 +39,7 @@ public class LightWithGlitter : MonoBehaviour {
     public void Glitter() {
         spotLight.intensity = _defaultIntensity * glitterIntensityMultiplier;
         for (int i = 0; i < lightsToTurnOffWithGlitter.Count; i++) {
-            lightsToTurnOffWithGlitter[i].enabled = false;
+            lightsToTurnOffWithGlitter[i].enabled = true;
         }
 
         StartCoroutine(C_RecoverIntensity());
@@ -54,7 +54,7 @@ public class LightWithGlitter : MonoBehaviour {
 
         spotLight.intensity = _defaultIntensity;
         for (int i = 0; i < lightsToTurnOffWithGlitter.Count; i++) {
-            lightsToTurnOffWithGlitter[i].enabled = true;
+            lightsToTurnOffWithGlitter[i].enabled = false;
         }
 
         _glittered = false;
@@ -67,7 +67,7 @@ public class LightWithGlitter : MonoBehaviour {
             yield return new WaitForSeconds(timeBetweenGlitters);
             spotLight.intensity = _defaultIntensity * glitterIntensityMultiplier;
             for (int i = 0; i < lightsToTurnOffWithGlitter.Count; i++) {
-                lightsToTurnOffWithGlitter[i].enabled = false;
+                lightsToTurnOffWithGlitter[i].enabled = true;
             }
             StartCoroutine(C_RecoverIntensity());
         } else {

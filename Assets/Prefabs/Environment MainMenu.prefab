@@ -4942,6 +4942,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f52fae99f335bb4b91eeb2237d4ba3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lightsToTurnOffWithGlitter:
+  - {fileID: 7191144625488809174}
   spotLight: {fileID: 754661046743510800}
   glitterIntensityMultiplier: 7
   timeToGlitter: {x: 0.3, y: 2.025}
