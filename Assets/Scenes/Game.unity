@@ -225,6 +225,7 @@ GameObject:
   - component: {fileID: 170367880}
   - component: {fileID: 170367882}
   - component: {fileID: 170367881}
+  - component: {fileID: 170367883}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -289,6 +290,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 170367879}
   m_CullTransparentMesh: 1
+--- !u!114 &170367883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170367879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e4f7fe06c4df804e894b5cde799520f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightButton: {fileID: 1359298074}
+  timeToDie: 20
+  _timer: 0
+  ligthsToTurnOff: []
+  lightObjects: []
+  imagesToDeactivate:
+  - {fileID: 170367881}
 --- !u!114 &174132316 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6655400713714344930, guid: 02ec874af7e89704a880f20b370d6ab9, type: 3}
@@ -1343,6 +1363,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d4636fea079968c46ad4b5079176062c, type: 3}
   m_PrefabInstance: {fileID: 1822389994}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &617440449 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 633285000188363257, guid: 02ec874af7e89704a880f20b370d6ab9, type: 3}
+  m_PrefabInstance: {fileID: 1874546919427031908}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ff58f91b494834419b6a3da2ae14d0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &628042442
 GameObject:
   m_ObjectHideFlags: 0
@@ -3253,6 +3284,17 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!114 &1359298074 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3009845577523577601, guid: 02ec874af7e89704a880f20b370d6ab9, type: 3}
+  m_PrefabInstance: {fileID: 1874546919427031908}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ff58f91b494834419b6a3da2ae14d0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1427836547
 GameObject:
   m_ObjectHideFlags: 0
@@ -6460,6 +6502,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 633285000188363257, guid: 02ec874af7e89704a880f20b370d6ab9, type: 3}
+      propertyPath: lightThatDies
+      value: 
+      objectReference: {fileID: 170367883}
+    - target: {fileID: 3009845577523577601, guid: 02ec874af7e89704a880f20b370d6ab9, type: 3}
+      propertyPath: lightThatDies
+      value: 
+      objectReference: {fileID: 170367883}
     - target: {fileID: 6257044477668711952, guid: 02ec874af7e89704a880f20b370d6ab9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -6578,6 +6628,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1756865094754172578, guid: 60f7525bd924fe1409fdf0e8a498cc1d, type: 3}
+      propertyPath: lightButton
+      value: 
+      objectReference: {fileID: 617440449}
     - target: {fileID: 2414573388003326907, guid: 60f7525bd924fe1409fdf0e8a498cc1d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
