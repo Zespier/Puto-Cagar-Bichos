@@ -17,7 +17,7 @@ public class LightButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public Sprite bombillaArreglada;
 
     private bool _holding;
-    private float _timerToFix;
+    public float _timerToFix;
     private bool _recovered;
 
     public bool Fixed { get; set; }
