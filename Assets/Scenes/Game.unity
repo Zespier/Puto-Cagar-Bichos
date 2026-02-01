@@ -2998,7 +2998,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 3.555, y: 2.131}
+  m_AnchoredPosition: {x: 3.577, y: 2.131}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1245975171
@@ -4330,14 +4330,10 @@ MonoBehaviour:
   hideTimer: 0
   screenImage: {fileID: 170367881}
   allScreenshots:
-  - {fileID: 21300000, guid: 4c16029be782dcc47b227e02644f3dc3, type: 3}
-  - {fileID: 21300000, guid: c225988bb37c6954f9ef2a8f6fd81d1c, type: 3}
-  - {fileID: 21300000, guid: 2c424ea5b70f6e84589739012ac05540, type: 3}
-  - {fileID: 21300000, guid: d452307a24901da47ab04db10d59b09e, type: 3}
-  - {fileID: 21300000, guid: 30bc6e9835934014a8ac06a2dbf4344d, type: 3}
-  - {fileID: 21300000, guid: 55378a5d5d61b3943b5a564fb81b3cf6, type: 3}
-  - {fileID: 21300000, guid: 4ed58884e2ef5314c98d4c228af1a31b, type: 3}
-  - {fileID: 21300000, guid: a2d9740d0e4f3a043b703467441754ee, type: 3}
+  - {fileID: 21300000, guid: 765617d2e61db034d9f03e186c7cf21e, type: 3}
+  - {fileID: 21300000, guid: 3f66072411197724193a03e928eeef61, type: 3}
+  - {fileID: 21300000, guid: a3a4c5c715b334c4a85b7c56b34bcedb, type: 3}
+  - {fileID: 21300000, guid: 0045a657a4af6534d97af4dc466e3ca5, type: 3}
   current: 0
   hidePosition: {fileID: 212547123}
   attackPosition: {fileID: 890534548}
@@ -5749,6 +5745,7 @@ MonoBehaviour:
   pcPosition: {fileID: 1956858158}
   timeToGoToPc: 0.5
   animator: {fileID: 1901006486}
+  jumpscareSpeed: 15
 --- !u!1 &2058084643
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,7 +6,7 @@ public class SoundManager : MonoBehaviour {
     public AudioClip glitterActivate;
     public AudioClip glitterdeActivate;
     public AudioSource lastMinuteLoopSound;
-
+    
     public static SoundManager instance;
 
     private void Awake() {

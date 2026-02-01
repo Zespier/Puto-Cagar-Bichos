@@ -161,10 +161,10 @@ public class CameraHolder : MonoBehaviour {
 
         //Bicho se acerca
         timer = Time.time;
-        while (Time.time - timer < 1f) {
+        while (Time.time - timer < 0.7f) {
             //Movemos al enemigo a la camara
             //transform.forward = Vector3.Slerp(transform.forward, deathForward, Time.deltaTime * cameraDeathMoveSpeed);
-            enemyTransform.position = Vector3.MoveTowards(enemyTransform.position, transform.position + (enemyTransform.position - transform.position).normalized * 3, Time.deltaTime * jumpscareSpeed);
+            enemyTransform.position = Vector3.MoveTowards(enemyTransform.position, transform.position + (enemyTransform.position - transform.position).normalized * 2.7f, Time.deltaTime * jumpscareSpeed);
             transform.forward = Vector3.Slerp(transform.forward, deathForward, Time.deltaTime * cameraDeathMoveSpeed);
             yield return null;
         }
