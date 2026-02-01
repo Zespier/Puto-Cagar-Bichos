@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class BichoTele : Aggro {
 
     public Image screenImage;
+    public List<Sprite> teleProgression;
     public List<Sprite> allScreenshots;
     public int current;
     public Transform hidePosition;
@@ -31,7 +32,13 @@ public class BichoTele : Aggro {
     }
 
     protected override void Update() {
-        screenImage.sprite = allScreenshots[current];
+        if (current == 0) {
+            int index = (int)(_killTimer / timeToKill) * teleProgression.Count;
+            screenImage.sprite = teleProgression[index];
+        } else {
+            screenImage.sprite = allScreenshots[current];
+        }
+
         if (current != 0) {
             state = EnemyState.Hunting;
         }

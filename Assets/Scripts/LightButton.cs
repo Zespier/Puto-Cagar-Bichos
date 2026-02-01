@@ -27,6 +27,7 @@ public class LightButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         image.sprite = _timerToFix < timeToFix ? brokenSprite : fixedSprite;
         bombilla.sprite = _timerToFix < timeToFix ? bombillaRota : bombillaArreglada;
         indicativeText.text = _timerToFix < timeToFix ? "ROTO" : "ACTIVO";
+        image.color = _holding ? holdColor : Color.white;
 
         if (!_recovered && _timerToFix >= timeToFix) {
             _recovered = true;
@@ -36,7 +37,6 @@ public class LightButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
         if (_timerToFix < timeToFix) {
             image.sprite = _holding ? fixedSprite : brokenSprite;
-            image.color = _holding ? holdColor : Color.white;
         }
 
         if (_holding && _timerToFix < timeToFix) {

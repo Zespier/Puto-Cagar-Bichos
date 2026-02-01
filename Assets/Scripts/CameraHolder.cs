@@ -172,6 +172,8 @@ public class CameraHolder : MonoBehaviour {
             yield return null;
         }
 
+
+
         //Mascara animation
         animator.GetComponent<Image>().enabled = true;
         animator.Play(jumpscare);
