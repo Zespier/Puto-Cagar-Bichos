@@ -10,6 +10,8 @@ public class LightThatDies : MonoBehaviour {
     public List<Light> ligthsToTurnOff;
     public List<GameObject> lightObjects;
     public List<Image> imagesToDeactivate;
+    public Sprite staticcc;
+    public Sprite otraCualquiera;
     public bool _turnedOff;
 
     private float _randomTimeToDie;
@@ -30,7 +32,7 @@ public class LightThatDies : MonoBehaviour {
                 lightObjects[i].SetActive(false);
             }
             for (int i = 0; i < imagesToDeactivate.Count; i++) {
-                imagesToDeactivate[i].enabled = false;
+                imagesToDeactivate[i].sprite = staticcc;
             }
             lightButton.ResetButton();
         }
@@ -45,7 +47,7 @@ public class LightThatDies : MonoBehaviour {
             lightObjects[i].SetActive(true);
         }
         for (int i = 0; i < imagesToDeactivate.Count; i++) {
-            imagesToDeactivate[i].enabled = true;
+            imagesToDeactivate[i].sprite = otraCualquiera;
         }
         _turnedOff = false;
         _randomTimeToDie = Random.Range(timeToDie.x, timeToDie.y);

@@ -15,6 +15,8 @@ public class BichoTele : Aggro {
     public float timeToKill = 5;
     public Sprite bichoTeleDeathSprite;
     public bool dejarDeDarPorCulo;
+    public Image barra;
+    public Sprite staticcc;
 
     private float _timerToChangeChannel;
     public float _killTimer;
@@ -32,11 +34,15 @@ public class BichoTele : Aggro {
     }
 
     protected override void Update() {
-        if (current == 0) {
-            int index = (int)(_killTimer / timeToKill) * teleProgression.Count;
-            screenImage.sprite = teleProgression[index];
-        } else {
-            screenImage.sprite = allScreenshots[current];
+        barra.fillAmount = _killTimer / timeToKill;
+
+        if (screenImage.sprite != staticcc) {
+            if (current == 0) {
+                int index = (int)(_killTimer / timeToKill) * teleProgression.Count;
+                screenImage.sprite = teleProgression[index];
+            } else {
+                screenImage.sprite = allScreenshots[current];
+            }
         }
 
         if (current != 0) {
@@ -53,7 +59,7 @@ public class BichoTele : Aggro {
         }
 
 
-        if (current != 0 || screenImage.enabled == false) {
+        if (current != 0 || screenImage.sprite == staticcc) {
 
             _killTimer += Time.deltaTime;
             if (_killTimer >= timeToKill) {
@@ -72,7 +78,7 @@ public class BichoTele : Aggro {
     }
 
     public void ChangeChannel(int index) {
-        if (screenImage.enabled) {
+        if (screenImage.sprite != staticcc) {
             if (index >= allScreenshots.Count) {
                 index = 0;
             }

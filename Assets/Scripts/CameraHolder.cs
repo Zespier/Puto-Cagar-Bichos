@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class CameraHolder : MonoBehaviour {
@@ -224,7 +225,15 @@ public class CameraHolder : MonoBehaviour {
 
         float timer = Time.time;
 
-        Vector3 initialPosition = transform.position;
+        Vector3 initialPosition;
+
+        if (Player.instance.isCrouched) {
+            initialPosition = new Vector3(_defaultPosition.x, Player.instance.crouchedHeight, _defaultPosition.z);
+
+        } else {
+            initialPosition = new Vector3(_defaultPosition.x, Player.instance.standUpHeight, _defaultPosition.z);
+        }
+
         Vector3 initialForward = targetHelper.forward;
 
         while (transform.position != pcPosition.position) {
@@ -255,13 +264,18 @@ public class CameraHolder : MonoBehaviour {
         float timer = Time.time;
 
         Vector3 initialPosition = transform.position;
+        Vector3 targetPosition;
+        if (Player.instance.isCrouched) {
+            targetPosition = new Vector3(_defaultPosition.x, Player.instance.crouchedHeight, _defaultPosition.z);
 
-        while (transform.position != _defaultPosition) {
-            transform.position = Vector3.Lerp(initialPosition, _defaultPosition, (Time.time - timer) / timeToGoToPc);
-            yield return null;
+        } else {
+            targetPosition = new Vector3(_defaultPosition.x, Player.instance.standUpHeight, _defaultPosition.z);
         }
 
-        Player.instance.isCrouched = true;
+        while (transform.position != targetPosition) {
+            transform.position = Vector3.Lerp(initialPosition, targetPosition, (Time.time - timer) / timeToGoToPc);
+            yield return null;
+        }
 
         GameManager.GameState = GameState.Playing;
 

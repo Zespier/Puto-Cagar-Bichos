@@ -57,6 +57,10 @@ public class Player : MonoBehaviour {
             return;
         }
 
+        if (GameManager.GameState == GameState.OnPc) {
+            return;
+        }
+
         if (isCrouched) {
             StandUp(default);
             return;
@@ -72,6 +76,10 @@ public class Player : MonoBehaviour {
 
     public void StandUp(InputAction.CallbackContext context) {
         if (GameManager.GameState != GameState.Playing && GameManager.GameState != GameState.MaskOn) {
+            return;
+        }
+
+        if (GameManager.GameState == GameState.OnPc) {
             return;
         }
 
