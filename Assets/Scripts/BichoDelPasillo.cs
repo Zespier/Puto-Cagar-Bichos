@@ -92,6 +92,6 @@ public class BichoDelPasillo : Aggro {
 
         puerta.rotation = puertaOrientation.rotation;
 
-        CameraHolder.instance.DeathAnimation(DeathType.Pasillo, bichoDelPasilloDeathSprite, "Apúntale con la linterna para que se vaya");
+        CameraHolder.instance.DeathAnimation(DeathType.Pasillo, bichoDelPasilloDeathSprite, "No dejes que abra la puerta. Manten (boton derecho) para \r\napuntarle con la linterna y asustarle");
     }
 }

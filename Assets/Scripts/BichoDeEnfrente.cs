@@ -73,7 +73,7 @@ public class BichoDeEnfrente : Aggro {
         }
 
         _playerDead = true;
-        CameraHolder.instance.DeathAnimation(DeathType.SalaDeReuniones, bichoDeEnfrenteDeathSprite, "´No tiene buena vista, ponte una máscara con el botón izquierdo para hacerte pasar por uno de ellos.");
+        CameraHolder.instance.DeathAnimation(DeathType.SalaDeReuniones, bichoDeEnfrenteDeathSprite, "Pulsa (Q) para levantarte. No tiene buena vision, ponte la mascara (E) \r\npara engañarle y hacerte pasar por uno de ellos.");
     }
 
     private void ChangePosition() {

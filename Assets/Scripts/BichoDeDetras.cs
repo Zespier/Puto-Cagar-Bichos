@@ -60,6 +60,6 @@ public class BichoDeDetras : Aggro {
             yield return null;
         }
 
-        CameraHolder.instance.DeathAnimation(DeathType.DebajoDeLaMesa, bichoDeDetrasDeathSprite, "Pulsa repetidamente el boton izquierdo para que se vaya");
+        CameraHolder.instance.DeathAnimation(DeathType.DebajoDeLaMesa, bichoDeDetrasDeathSprite, "Pulsa repetidamente la linterna (boton derecho) para flashearle \r\ny evitar que te mate.");
     }
 }

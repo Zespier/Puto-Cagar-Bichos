@@ -98,6 +98,11 @@ public class Player : MonoBehaviour {
             for (int i = 0; i < hits.Length; i++) {
                 if (hits[i].collider.CompareTag("Ordenador")) {
                     CameraHolder.instance.GoToPc();
+                    return;
+
+                } else if (hits[i].collider.CompareTag("Tele")) {
+                    CameraHolder.instance.GoToPc();
+                    return;
                 }
             }
         }
