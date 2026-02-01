@@ -9568,6 +9568,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Escritorio (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3071523478905951637, guid: a15c04bc10315f94c91c701266156fa2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 4802538785926001380, guid: a15c04bc10315f94c91c701266156fa2, type: 3}
