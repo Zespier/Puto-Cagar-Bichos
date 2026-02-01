@@ -1175,7 +1175,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0889d78e1d5119e4aa3851ad4a8e2c87, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c564d19a08af69d4e9c78634ae93374c, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1582,6 +1582,9 @@ MonoBehaviour:
   glitterActivate: {fileID: 8300000, guid: db810c4ca34d70a428cb9a78a9065354, type: 3}
   glitterdeActivate: {fileID: 8300000, guid: da08d1df32a947043bdf9f8480eff191, type: 3}
   lastMinuteLoopSound: {fileID: 0}
+  changeChannelAudioSource: {fileID: 0}
+  changeChannelClip: {fileID: 0}
+  randomPitch: 0.08
 --- !u!1 &1681638759
 GameObject:
   m_ObjectHideFlags: 0
@@ -2252,7 +2255,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0889d78e1d5119e4aa3851ad4a8e2c87, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c564d19a08af69d4e9c78634ae93374c, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
