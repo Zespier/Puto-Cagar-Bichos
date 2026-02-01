@@ -5461,6 +5461,7 @@ MonoBehaviour:
   lightObjects:
   - {fileID: 8027782996728573220}
   - {fileID: 6280292983047513604}
+  imagesToDeactivate: []
 --- !u!1 &5533649424947341136
 GameObject:
   m_ObjectHideFlags: 0
@@ -6604,6 +6605,7 @@ GameObject:
   - component: {fileID: 1160625236593326422}
   - component: {fileID: 7562483723555958273}
   - component: {fileID: 3466716835514481348}
+  - component: {fileID: 1756865094754172578}
   m_Layer: 0
   m_Name: Area Light (4)
   m_TagString: Untagged
@@ -6833,6 +6835,24 @@ MonoBehaviour:
   m_ObsoleteUseShadowQualitySettings: 0
   m_ObsoleteCustomShadowResolution: 512
   m_ObsoleteContactShadows: 0
+--- !u!114 &1756865094754172578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6393431205331889538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e4f7fe06c4df804e894b5cde799520f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightButton: {fileID: 0}
+  timeToDie: 20
+  _timer: 0
+  ligthsToTurnOff: []
+  lightObjects: []
+  imagesToDeactivate: []
 --- !u!1 &6896650797541431366
 GameObject:
   m_ObjectHideFlags: 0
