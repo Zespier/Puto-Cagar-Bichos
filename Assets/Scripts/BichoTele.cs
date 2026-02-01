@@ -40,11 +40,11 @@ public class BichoTele : Aggro {
         if (_playerDead) { return; }
         if (dejarDeDarPorCulo) { return; }
 
-        if (state == EnemyState.Hiding) {
+        if (state == EnemyState.Hiding || GameManager.GameState == GameState.Dying) {
             _timerToChangeChannel = Time.time;
             return;
         }
-
+        
 
         if (current != 0) {
 

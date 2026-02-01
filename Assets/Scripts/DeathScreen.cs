@@ -32,19 +32,19 @@ public class DeathScreen : MonoBehaviour {
     }
 
     public void RestartLevel(InputAction.CallbackContext context) {
-        if (canvasGroup.alpha == 1) {
+        if (canvasGroup.alpha >= 0.5f) {
             SceneLoader.instance.ReloadLevel();
         }
     }
 
     public void SerGay(InputAction.CallbackContext context) {
-        if (canvasGroup.alpha == 1) {
+        if (canvasGroup.alpha >= 0.5f) {
             SceneLoader.instance.LoadMainMenu();
         }
     }
 
     public void Fade() {
-        StartCoroutine(C_Fade(1));
+        StartCoroutine(C_Fade(3));
     }
 
     private IEnumerator C_Fade(float alpha) {

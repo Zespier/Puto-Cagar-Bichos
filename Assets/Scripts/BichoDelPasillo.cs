@@ -33,7 +33,7 @@ public class BichoDelPasillo : Aggro {
 
     protected override void Update() {
         base.Update();
-        if (state == EnemyState.Hiding) { return; }
+        if (state == EnemyState.Hiding || GameManager.GameState == GameState.Dying) { return; }
         if (dejarDeDarPorCulo) { return; }
 
         if (Player.instance.spotLight.gameObject.activeSelf && Mathf.Abs(Vector3.Angle(FlashLight.instance.transform.forward, transform.position - FlashLight.instance.transform.position)) < 50) {

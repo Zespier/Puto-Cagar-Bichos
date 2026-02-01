@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Net.NetworkInformation;
 using UnityEngine;
 
 public class BichoDeEnfrente : Aggro {
@@ -29,7 +30,7 @@ public class BichoDeEnfrente : Aggro {
         if (_playerDead) { return; }
         if (dejarDeDarPorCulo) { return; }
 
-        if (state == EnemyState.Hiding) {
+        if (state == EnemyState.Hiding || GameManager.GameState == GameState.Dying) {
             _timer = Time.time;
             return;
         }

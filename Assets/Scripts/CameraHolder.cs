@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CameraHolder : MonoBehaviour {
 
@@ -23,6 +24,7 @@ public class CameraHolder : MonoBehaviour {
     public float deathShakeMagnitude = 0.2f;
     public Transform pcPosition;
     public float timeToGoToPc = 0.5f;
+    public Animator animator;
 
     private bool _dying;
     private bool _movingCameraToPc;
@@ -156,8 +158,27 @@ public class CameraHolder : MonoBehaviour {
 
         StartCoroutine(C_Shake());
 
+
         while (Time.time - timer < 1) {
             transform.forward = Vector3.Slerp(transform.forward, deathForward, Time.deltaTime * cameraDeathMoveSpeed);
+            yield return null;
+        }
+
+        //Bicho se acerca
+        timer = Time.time;
+        while (Time.time - timer < 0.3f) {
+            //Movemos al enemigo a la camara
+            //transform.forward = Vector3.Slerp(transform.forward, deathForward, Time.deltaTime * cameraDeathMoveSpeed);
+            yield return null;
+        }
+
+
+        //Mascara animation
+        animator.GetComponent<Image>().enabled = true;
+        animator.Play("Jumpscare");
+        timer = Time.time;
+        while (Time.time - timer < 0.5f) {
+            //transform.forward = Vector3.Slerp(transform.forward, deathForward, Time.deltaTime * cameraDeathMoveSpeed);
             yield return null;
         }
 

@@ -31,6 +31,12 @@ public class SceneLoader : MonoBehaviour {
         }
     }
 
+    public void FadeInFast() {
+        if (!_isFading) {
+            StartCoroutine(C_Fade(0.05f));
+        }
+    }
+
     public void FadeOut() {
         if (!_isFading) {
             StartCoroutine(C_Fade(0));
@@ -66,11 +72,11 @@ public class SceneLoader : MonoBehaviour {
     private IEnumerator C_ShowDeathScreen(Sprite enemyScreenshot, string deathReason) {
         _isShowingDeathScreen = true;
 
-        FadeIn();
-        yield return new WaitForSeconds(1);
+        FadeInFast();
+        yield return new WaitForSeconds(0.5f);
         deathScreen.UpdateDeathScreen(enemyScreenshot, deathReason);
         deathScreen.Fade();
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(3);
 
         _isShowingDeathScreen = false;
     }
