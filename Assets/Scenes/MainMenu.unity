@@ -617,7 +617,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Play
+  m_text: Jugar
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e90644d5931c49141855db16eeb4b57b, type: 2}
   m_sharedMaterial: {fileID: -4871057986829440806, guid: e90644d5931c49141855db16eeb4b57b, type: 2}
@@ -1617,11 +1617,11 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 125685797}
   - {fileID: 1463416726}
   - {fileID: 828945953}
   - {fileID: 980430248}
   - {fileID: 1172405664}
+  - {fileID: 125685797}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2117,9 +2117,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Exit
-
-'
+  m_text: Salir
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e90644d5931c49141855db16eeb4b57b, type: 2}
   m_sharedMaterial: {fileID: -4871057986829440806, guid: e90644d5931c49141855db16eeb4b57b, type: 2}
