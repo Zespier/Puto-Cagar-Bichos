@@ -5,20 +5,22 @@ using UnityEngine.UI;
 public class LightThatDies : MonoBehaviour {
 
     public LightButton lightButton;
-    public float timeToDie = 20f;
+    public Vector2 timeToDie = new Vector2(15, 30);
     public float _timer;
     public List<Light> ligthsToTurnOff;
     public List<GameObject> lightObjects;
     public List<Image> imagesToDeactivate;
+    public bool _turnedOff;
 
-    private bool _turnedOff;
+    private float _randomTimeToDie;
 
     private void Awake() {
         _timer = Time.time;
+        _randomTimeToDie = Random.Range(timeToDie.x, timeToDie.y);
     }
 
     private void Update() {
-        if (!_turnedOff && Time.time - _timer >= timeToDie) {
+        if (!_turnedOff && Time.time - _timer >= _randomTimeToDie) {
             _turnedOff = true;
             _timer = Time.time;
             for (int i = 0; i < ligthsToTurnOff.Count; i++) {
@@ -46,5 +48,6 @@ public class LightThatDies : MonoBehaviour {
             imagesToDeactivate[i].enabled = true;
         }
         _turnedOff = false;
+        _randomTimeToDie = Random.Range(timeToDie.x, timeToDie.y);
     }
 }

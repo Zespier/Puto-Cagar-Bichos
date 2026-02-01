@@ -214,6 +214,7 @@ MonoBehaviour:
   timeToHideWithMask: 2
   bichoDeEnfrenteDeathSprite: {fileID: 21300000, guid: dbdd2f69cf373484fab64877d81c5354, type: 3}
   dejarDeDarPorCulo: 0
+  lightThatDies: {fileID: 4964217181904625014}
 --- !u!1 &170367879
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,12 +304,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lightButton: {fileID: 1359298074}
-  timeToDie: 20
+  timeToDie: {x: 27, y: 55}
   _timer: 0
   ligthsToTurnOff: []
   lightObjects: []
   imagesToDeactivate:
   - {fileID: 170367881}
+  _turnedOff: 0
 --- !u!114 &174132316 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6655400713714344930, guid: 02ec874af7e89704a880f20b370d6ab9, type: 3}
@@ -1171,10 +1173,10 @@ MonoBehaviour:
   - 1
   - 0.95
   - 0.9
-  - 0.85
-  - 0.8
+  - 0.9
+  - 0.9
   hideTimersPerStage:
-  - 4
+  - 5
   - 3
   - 2
   - 1
@@ -1183,8 +1185,8 @@ MonoBehaviour:
   gameTimer: 0
   state: 0
   hideTimer: 0
-  approachSpeedd: 0.7
-  hideSpeedd: 2.6
+  approachSpeedd: 0.57
+  hideSpeedd: 2.8
   attackPosition: {fileID: 1478599239}
   hidePosition: {fileID: 1270945459}
   pomoDeLaPuerta: {fileID: 1257226024}
@@ -1195,6 +1197,7 @@ MonoBehaviour:
   doorKillingAnimationTime: 0.15
   bichoDelPasilloDeathSprite: {fileID: 21300000, guid: 1ffc714da806bf743839771a2c1c61fe, type: 3}
   dejarDeDarPorCulo: 0
+  lightThatDies: {fileID: 1079397426}
 --- !u!1 &446855965
 GameObject:
   m_ObjectHideFlags: 0
@@ -2472,6 +2475,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1431230211}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &1079397426 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1756865094754172578, guid: 60f7525bd924fe1409fdf0e8a498cc1d, type: 3}
+  m_PrefabInstance: {fileID: 4964217181904625010}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e4f7fe06c4df804e894b5cde799520f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1107990088
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,6 +15,7 @@ public class BichoDelPasillo : Aggro {
     public float doorKillingAnimationTime = 0.2f;
     public Sprite bichoDelPasilloDeathSprite;
     public bool dejarDeDarPorCulo;
+    public LightThatDies lightThatDies;
 
     private Vector3 _defaultUp;
     private float _openDoorTimer;
@@ -45,7 +46,7 @@ public class BichoDelPasillo : Aggro {
             }
 
         } else {
-            transform.position = Vector3.MoveTowards(transform.position, attackPosition.position, Time.deltaTime * (approachSpeedd / aggroMultiplier[currentStage]));
+            transform.position = Vector3.MoveTowards(transform.position, attackPosition.position, lightThatDies._turnedOff ? 1.25f : 1 * Time.deltaTime * (approachSpeedd / aggroMultiplier[currentStage]));
         }
 
         if (transform.position == attackPosition.position) {

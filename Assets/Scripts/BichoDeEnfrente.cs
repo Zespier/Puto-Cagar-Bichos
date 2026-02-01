@@ -14,6 +14,7 @@ public class BichoDeEnfrente : Aggro {
     public float timeToHideWithMask = 2f;
     public Sprite bichoDeEnfrenteDeathSprite;
     public bool dejarDeDarPorCulo;
+    public LightThatDies lightThatDies;
 
     private float _timer;
     private float _killTimer;
@@ -59,7 +60,7 @@ public class BichoDeEnfrente : Aggro {
             }
 
         } else {
-            if (Time.time - _timer > (timeToChangePosition * aggroMultiplier[currentStage])) {
+            if (Time.time - _timer > (timeToChangePosition * aggroMultiplier[currentStage] * (lightThatDies._turnedOff ? 1.25f : 1))) {
                 _timer = Time.time;
                 currentPositionIndex++;
                 ChangePosition();

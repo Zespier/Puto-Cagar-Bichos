@@ -44,9 +44,9 @@ public class BichoTele : Aggro {
             _timerToChangeChannel = Time.time;
             return;
         }
-        
 
-        if (current != 0) {
+
+        if (current != 0 || screenImage.enabled == false) {
 
             _killTimer += Time.deltaTime;
             if (_killTimer >= timeToKill) {
@@ -65,17 +65,19 @@ public class BichoTele : Aggro {
     }
 
     public void ChangeChannel(int index) {
-        if (index >= allScreenshots.Count) {
-            index = 0;
-        }
+        if (screenImage.enabled) {
+            if (index >= allScreenshots.Count) {
+                index = 0;
+            }
 
-        if (index < 0) {
-            index = 0;
-        }
+            if (index < 0) {
+                index = 0;
+            }
 
-        current = index;
-        if (current == 0) {
-            base.Hide();
+            current = index;
+            if (current == 0) {
+                base.Hide();
+            }
         }
     }
 

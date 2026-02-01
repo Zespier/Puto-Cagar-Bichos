@@ -5452,7 +5452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lightButton: {fileID: 0}
-  timeToDie: 2
+  timeToDie: {x: 20, y: 35}
   _timer: 0
   ligthsToTurnOff:
   - {fileID: 7576649049009059846}
@@ -5462,6 +5462,7 @@ MonoBehaviour:
   - {fileID: 8027782996728573220}
   - {fileID: 6280292983047513604}
   imagesToDeactivate: []
+  _turnedOff: 0
 --- !u!1 &5533649424947341136
 GameObject:
   m_ObjectHideFlags: 0
@@ -6848,11 +6849,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lightButton: {fileID: 0}
-  timeToDie: 20
+  timeToDie: {x: 50, y: 70}
   _timer: 0
-  ligthsToTurnOff: []
+  ligthsToTurnOff:
+  - {fileID: 2929018558849422770}
+  - {fileID: 6346126648087953074}
+  - {fileID: 3713537578329972103}
+  - {fileID: 2009707237250379196}
+  - {fileID: 1861677930979389934}
+  - {fileID: 7242025943401070157}
+  - {fileID: 7562483723555958273}
+  - {fileID: 8303232003108674188}
   lightObjects: []
   imagesToDeactivate: []
+  _turnedOff: 0
 --- !u!1 &6896650797541431366
 GameObject:
   m_ObjectHideFlags: 0
