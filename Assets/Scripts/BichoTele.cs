@@ -20,11 +20,22 @@ public class BichoTele : Aggro {
     private bool _playerDead;
     private bool _isWaitingForPlayerToStopLookingAtTheScreen;
 
+    public static BichoTele instance;
+
     private void Awake() {
         _timerToChangeChannel = Time.time;
+
+        if (!instance) {
+            instance = this;
+        }
     }
 
     protected override void Update() {
+        screenImage.sprite = allScreenshots[current];
+        if (current != 0) {
+            state = EnemyState.Hunting;
+        }
+
         base.Update();
         if (_playerDead) { return; }
         if (dejarDeDarPorCulo) { return; }
@@ -34,7 +45,6 @@ public class BichoTele : Aggro {
             return;
         }
 
-        screenImage.sprite = allScreenshots[current];
 
         if (current != 0) {
 
@@ -55,6 +65,14 @@ public class BichoTele : Aggro {
     }
 
     public void ChangeChannel(int index) {
+        if (index >= allScreenshots.Count) {
+            index = 0;
+        }
+
+        if (index < 0) {
+            index = 0;
+        }
+
         current = index;
         if (current == 0) {
             base.Hide();

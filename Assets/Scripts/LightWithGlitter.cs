@@ -1,8 +1,10 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class LightWithGlitter : MonoBehaviour {
 
+    public List<Light> lightsToTurnOffWithGlitter;
     public Light spotLight;
     public float glitterIntensityMultiplier = 0.6f;
     public Vector2 timeToGlitter = new Vector2(0.3f, 3f);
@@ -36,6 +38,9 @@ public class LightWithGlitter : MonoBehaviour {
 
     public void Glitter() {
         spotLight.intensity = _defaultIntensity * glitterIntensityMultiplier;
+        for (int i = 0; i < lightsToTurnOffWithGlitter.Count; i++) {
+            lightsToTurnOffWithGlitter[i].enabled = false;
+        }
 
         StartCoroutine(C_RecoverIntensity());
     }
@@ -48,6 +53,10 @@ public class LightWithGlitter : MonoBehaviour {
         }
 
         spotLight.intensity = _defaultIntensity;
+        for (int i = 0; i < lightsToTurnOffWithGlitter.Count; i++) {
+            lightsToTurnOffWithGlitter[i].enabled = true;
+        }
+
         _glittered = false;
         _timerGlitter = 0;
         _randomTimeToGlitter = Random.Range(timeToGlitter.x, timeToGlitter.y);
@@ -57,6 +66,9 @@ public class LightWithGlitter : MonoBehaviour {
         if (_randomNumberOfTimes > 0) {
             yield return new WaitForSeconds(timeBetweenGlitters);
             spotLight.intensity = _defaultIntensity * glitterIntensityMultiplier;
+            for (int i = 0; i < lightsToTurnOffWithGlitter.Count; i++) {
+                lightsToTurnOffWithGlitter[i].enabled = false;
+            }
             StartCoroutine(C_RecoverIntensity());
         } else {
             _randomNumberOfTimes = Random.Range(1, maxNumberOfTimes + 1);

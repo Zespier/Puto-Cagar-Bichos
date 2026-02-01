@@ -101,7 +101,7 @@ public class Player : MonoBehaviour {
                     return;
 
                 } else if (hits[i].collider.CompareTag("Tele")) {
-                    CameraHolder.instance.GoToPc();
+                    BichoTele.instance.ChangeChannel(BichoTele.instance.current + 1);
                     return;
                 }
             }
