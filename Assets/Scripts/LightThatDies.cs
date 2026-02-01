@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LightThatDies : MonoBehaviour {
 
@@ -8,7 +9,8 @@ public class LightThatDies : MonoBehaviour {
     public float _timer;
     public List<Light> ligthsToTurnOff;
     public List<GameObject> lightObjects;
-         
+    public List<Image> imagesToDeactivate;
+
     private bool _turnedOff;
 
     private void Awake() {
@@ -25,6 +27,9 @@ public class LightThatDies : MonoBehaviour {
             for (int i = 0; i < lightObjects.Count; i++) {
                 lightObjects[i].SetActive(false);
             }
+            for (int i = 0; i < imagesToDeactivate.Count; i++) {
+                imagesToDeactivate[i].enabled = false;
+            }
             lightButton.ResetButton();
         }
     }
@@ -37,7 +42,9 @@ public class LightThatDies : MonoBehaviour {
         for (int i = 0; i < lightObjects.Count; i++) {
             lightObjects[i].SetActive(true);
         }
-
+        for (int i = 0; i < imagesToDeactivate.Count; i++) {
+            imagesToDeactivate[i].enabled = true;
+        }
         _turnedOff = false;
     }
 }
