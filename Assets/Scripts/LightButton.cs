@@ -11,24 +11,34 @@ public class LightButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public Color holdColor;
     public TMP_Text indicativeText;
     public float timeToFix = 3;
+    public LightThatDies lightThatDies;
 
     private bool _holding;
     private float _timerToFix;
+    private bool _recovered;
 
     public bool Fixed { get; set; }
 
     private void Update() {
-        image.sprite = _holding ? fixedSprite : brokenSprite;
-        image.color = _holding ? holdColor : Color.white;
-        //image.sprite = 
-        indicativeText.text = _holding ? "100%" : "fixed";
 
-        if (_holding) {
+        image.sprite = _timerToFix < timeToFix ? brokenSprite : fixedSprite;
+        indicativeText.text = _timerToFix < timeToFix ? "ROTO" : "ACTIVO";
+
+        if (!_recovered && _timerToFix >= timeToFix) {
+            _recovered = true;
+            lightThatDies.RecoverLight();
+            return;
+        }
+
+        if (_timerToFix < timeToFix) {
+            image.sprite = _holding ? fixedSprite : brokenSprite;
+            image.color = _holding ? holdColor : Color.white;
+        }
+
+        if (_holding && _timerToFix < timeToFix) {
             _timerToFix += Time.deltaTime;
-            indicativeText.text = _holding ? $"{(int)(_timerToFix / timeToFix * 100)}%" : "broken";
-            if (indicativeText.text == "100%") {
-                indicativeText.text = "FIXED";
-            }
+            int percentageOfButton = (int)(_timerToFix / timeToFix * 100);
+            indicativeText.text = $"{percentageOfButton}%";
         }
     }
 
@@ -42,5 +52,10 @@ public class LightButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     public void OnPointerExit(PointerEventData eventData) {
         _holding = false;
+    }
+
+    public void ResetButton() {
+        _timerToFix = 0;
+        _recovered = false;
     }
 }

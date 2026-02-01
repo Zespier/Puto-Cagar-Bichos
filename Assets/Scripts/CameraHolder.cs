@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class CameraHolder : MonoBehaviour {
@@ -57,6 +58,7 @@ public class CameraHolder : MonoBehaviour {
 
 
         playerInput.Player.Flashlight.Enable();
+        playerInput.Player.Flashlight.started += StopLookingAtPc;
         playerInput.Player.Flashlight.started += Player.instance.ActivateFlashLight;
         playerInput.Player.Flashlight.canceled += Player.instance.DeactivateFlashLight;
 
@@ -93,6 +95,7 @@ public class CameraHolder : MonoBehaviour {
         playerInput.Player.PutMaskOn.started -= Mask.instance.PutMask;
         playerInput.Player.PutMaskOn.Disable();
 
+        playerInput.Player.Flashlight.started -= StopLookingAtPc;
         playerInput.Player.Flashlight.started -= Player.instance.ActivateFlashLight;
         playerInput.Player.Flashlight.canceled -= Player.instance.DeactivateFlashLight;
         playerInput.Player.Flashlight.Disable();
@@ -232,9 +235,11 @@ public class CameraHolder : MonoBehaviour {
         _movingCameraToPc = false;
     }
 
-    public void StopLookingAtPc() {
-        if (!_movingCameraToPc) {
-            StartCoroutine(C_StopLookingAtPc());
+    public void StopLookingAtPc(InputAction.CallbackContext context) {
+        if (transform.position == pcPosition.position) {
+            if (!_movingCameraToPc) {
+                StartCoroutine(C_StopLookingAtPc());
+            }
         }
     }
 
