@@ -46,13 +46,13 @@ public class DeathScreen : MonoBehaviour {
     }
 
     public void RestartLevel(InputAction.CallbackContext context) {
-        if (canvasGroup.alpha >= 0.5f) {
+        if (GameManager.GameState == GameState.Dying) {
             SceneLoader.instance.ReloadLevel();
         }
     }
 
     public void SerGay(InputAction.CallbackContext context) {
-        if (canvasGroup.alpha >= 0.5f) {
+        if (GameManager.GameState == GameState.Dying) {
             SceneLoader.instance.LoadMainMenu();
         }
     }

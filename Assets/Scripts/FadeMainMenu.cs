@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class FadeMainMenu : MonoBehaviour {
 
@@ -10,6 +11,7 @@ public class FadeMainMenu : MonoBehaviour {
     public Transform cameraTransform;
     public Transform chairPosition;
     public float timeToMove = 1.5f;
+    public VideoClip clip;
 
     private bool _isFading;
 
@@ -55,6 +57,13 @@ public class FadeMainMenu : MonoBehaviour {
         fade.color = finalColor;
 
         _isFading = false;
+
+        PlayCinematicVideo.instance.PlayCinematic();
+
+        timer = Time.time;
+        while (Time.time - timer < clip.length) {
+            yield return null;
+        }
 
         SceneManager.LoadScene("Game");
     }

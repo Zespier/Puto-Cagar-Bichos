@@ -34,11 +34,17 @@ public class BichoTele : Aggro {
     }
 
     protected override void Update() {
+        bool aumentedWithStaticcc = false;
+        if (screenImage.sprite == staticcc) {
+            _killTimer += Time.deltaTime;
+            aumentedWithStaticcc = true;
+        }
+
         barra.fillAmount = _killTimer / timeToKill;
 
         if (screenImage.sprite != staticcc) {
             if (current == 0) {
-                int index = (int)(_killTimer / timeToKill) * teleProgression.Count;
+                int index = (int)((_killTimer / timeToKill) * teleProgression.Count);
                 screenImage.sprite = teleProgression[index];
             } else {
                 screenImage.sprite = allScreenshots[current];
@@ -61,7 +67,10 @@ public class BichoTele : Aggro {
 
         if (current != 0 || screenImage.sprite == staticcc) {
 
-            _killTimer += Time.deltaTime;
+            if (!aumentedWithStaticcc) {
+                _killTimer += Time.deltaTime;
+            }
+
             if (_killTimer >= timeToKill) {
                 if (!_isWaitingForPlayerToStopLookingAtTheScreen) {
                     StartCoroutine(C_WaitForPlayerToStopLookingAtTheScreen());
