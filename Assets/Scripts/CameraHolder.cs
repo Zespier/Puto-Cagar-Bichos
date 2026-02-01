@@ -162,6 +162,8 @@ public class CameraHolder : MonoBehaviour {
 
         StartCoroutine(C_Shake());
 
+        SoundManager.instance.PlayJumpscareSound();
+
         //Bicho se acerca
         timer = Time.time;
         while (Time.time - timer < 0.7f) {

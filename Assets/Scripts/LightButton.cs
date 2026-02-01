@@ -31,7 +31,9 @@ public class LightButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
         if (!_recovered && _timerToFix >= timeToFix) {
             _recovered = true;
-            lightThatDies.RecoverLight();
+            if (lightThatDies != null) {
+                lightThatDies.RecoverLight();
+            }
             return;
         }
 

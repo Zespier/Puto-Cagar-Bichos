@@ -43,6 +43,7 @@ public class Player : MonoBehaviour {
     public void ActivateFlashLight(InputAction.CallbackContext context) {
         if (GameManager.GameState == GameState.Playing) {
             spotLight.gameObject.SetActive(true);
+            SoundManager.instance.PlayTurnOnFlashlightAudioSource();
             BichoDeDetras.instance.Flashed();
         }
     }
