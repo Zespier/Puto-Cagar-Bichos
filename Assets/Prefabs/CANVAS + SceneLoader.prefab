@@ -901,7 +901,7 @@ MonoBehaviour:
   bombilla: {fileID: 7063865155122691805}
   bombillaRota: {fileID: 21300000, guid: c225988bb37c6954f9ef2a8f6fd81d1c, type: 3}
   bombillaArreglada: {fileID: 21300000, guid: 4c16029be782dcc47b227e02644f3dc3, type: 3}
-  _timerToFix: 0
+  _timerToFix: 3
 --- !u!1 &3567728606714041191
 GameObject:
   m_ObjectHideFlags: 0
@@ -2589,7 +2589,7 @@ MonoBehaviour:
   bombilla: {fileID: 4682011557231959943}
   bombillaRota: {fileID: 21300000, guid: c225988bb37c6954f9ef2a8f6fd81d1c, type: 3}
   bombillaArreglada: {fileID: 21300000, guid: 4c16029be782dcc47b227e02644f3dc3, type: 3}
-  _timerToFix: 0
+  _timerToFix: 3
 --- !u!1 &7442622133375336910
 GameObject:
   m_ObjectHideFlags: 0
@@ -2866,7 +2866,7 @@ MonoBehaviour:
   bombilla: {fileID: 1125601908815185729}
   bombillaRota: {fileID: 21300000, guid: c225988bb37c6954f9ef2a8f6fd81d1c, type: 3}
   bombillaArreglada: {fileID: 21300000, guid: 4c16029be782dcc47b227e02644f3dc3, type: 3}
-  _timerToFix: 0
+  _timerToFix: 3
 --- !u!1 &7970093346311784986
 GameObject:
   m_ObjectHideFlags: 0
