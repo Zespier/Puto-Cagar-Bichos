@@ -195,10 +195,10 @@ MonoBehaviour:
   - 0.85
   - 0.8
   hideTimersPerStage:
+  - 8
+  - 6
   - 4
-  - 3
   - 2
-  - 1
   - 0
   currentStage: 0
   gameTimer: 0
@@ -208,10 +208,10 @@ MonoBehaviour:
   huntingPosition: {fileID: 982787502}
   huntingPosition2: {fileID: 1047926282}
   attackPosition: {fileID: 1576555694}
-  timeToChangePosition: 4.5
+  timeToChangePosition: 6
   currentPositionIndex: 0
-  timeToKill: 5
-  timeToHideWithMask: 2
+  timeToKill: 10
+  timeToHideWithMask: 2.5
   bichoDeEnfrenteDeathSprite: {fileID: 21300000, guid: dbdd2f69cf373484fab64877d81c5354, type: 3}
   dejarDeDarPorCulo: 0
   lightThatDies: {fileID: 4964217181904625014}

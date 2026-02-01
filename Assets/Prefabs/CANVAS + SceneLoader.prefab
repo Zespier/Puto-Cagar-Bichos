@@ -376,8 +376,8 @@ MonoBehaviour:
   timeToFix: 3.3e+16
   lightThatDies: {fileID: 0}
   bombilla: {fileID: 8415700501748465685}
-  bombillaRota: {fileID: 0}
-  bombillaArreglada: {fileID: 0}
+  bombillaRota: {fileID: 21300000, guid: c225988bb37c6954f9ef2a8f6fd81d1c, type: 3}
+  bombillaArreglada: {fileID: 21300000, guid: 4c16029be782dcc47b227e02644f3dc3, type: 3}
 --- !u!1 &2812485262208803111
 GameObject:
   m_ObjectHideFlags: 0
@@ -895,11 +895,11 @@ MonoBehaviour:
   fixedSprite: {fileID: 21300000, guid: d452307a24901da47ab04db10d59b09e, type: 3}
   holdColor: {r: 0.62352943, g: 0.62352943, b: 0.62352943, a: 1}
   indicativeText: {fileID: 1166034027280728595}
-  timeToFix: 3
+  timeToFix: 2.6
   lightThatDies: {fileID: 0}
   bombilla: {fileID: 7063865155122691805}
-  bombillaRota: {fileID: 0}
-  bombillaArreglada: {fileID: 0}
+  bombillaRota: {fileID: 21300000, guid: c225988bb37c6954f9ef2a8f6fd81d1c, type: 3}
+  bombillaArreglada: {fileID: 21300000, guid: 4c16029be782dcc47b227e02644f3dc3, type: 3}
 --- !u!1 &3567728606714041191
 GameObject:
   m_ObjectHideFlags: 0
@@ -1618,8 +1618,8 @@ MonoBehaviour:
   timeToFix: 3.3e+16
   lightThatDies: {fileID: 0}
   bombilla: {fileID: 881740950193244833}
-  bombillaRota: {fileID: 0}
-  bombillaArreglada: {fileID: 0}
+  bombillaRota: {fileID: 21300000, guid: c225988bb37c6954f9ef2a8f6fd81d1c, type: 3}
+  bombillaArreglada: {fileID: 21300000, guid: 4c16029be782dcc47b227e02644f3dc3, type: 3}
 --- !u!1 &4900647288683843288
 GameObject:
   m_ObjectHideFlags: 0
@@ -2581,7 +2581,7 @@ MonoBehaviour:
   fixedSprite: {fileID: 21300000, guid: d452307a24901da47ab04db10d59b09e, type: 3}
   holdColor: {r: 0.62352943, g: 0.62352943, b: 0.62352943, a: 1}
   indicativeText: {fileID: 4486788517620445744}
-  timeToFix: 3
+  timeToFix: 2.6
   lightThatDies: {fileID: 0}
   bombilla: {fileID: 4682011557231959943}
   bombillaRota: {fileID: 21300000, guid: c225988bb37c6954f9ef2a8f6fd81d1c, type: 3}
@@ -2759,8 +2759,8 @@ MonoBehaviour:
   timeToFix: 3.3e+16
   lightThatDies: {fileID: 0}
   bombilla: {fileID: 5323636541334241697}
-  bombillaRota: {fileID: 0}
-  bombillaArreglada: {fileID: 0}
+  bombillaRota: {fileID: 21300000, guid: c225988bb37c6954f9ef2a8f6fd81d1c, type: 3}
+  bombillaArreglada: {fileID: 21300000, guid: 4c16029be782dcc47b227e02644f3dc3, type: 3}
 --- !u!1 &7909177219411079807
 GameObject:
   m_ObjectHideFlags: 0
@@ -2856,7 +2856,7 @@ MonoBehaviour:
   fixedSprite: {fileID: 21300000, guid: d452307a24901da47ab04db10d59b09e, type: 3}
   holdColor: {r: 0.62352943, g: 0.62352943, b: 0.62352943, a: 1}
   indicativeText: {fileID: 3856702343960917533}
-  timeToFix: 3
+  timeToFix: 2.6
   lightThatDies: {fileID: 0}
   bombilla: {fileID: 1125601908815185729}
   bombillaRota: {fileID: 21300000, guid: c225988bb37c6954f9ef2a8f6fd81d1c, type: 3}

@@ -67,7 +67,7 @@ public class BichoDelPasillo : Aggro {
 
     private IEnumerator C_WaitForPlayerToStopLookingAtTheScreen() {
         _isWaitingForPlayerToStopLookingAtTheScreen = true;
-        while (GameManager.GameState == GameState.OnPc) {
+        while (GameManager.GameState == GameState.OnPc || GameManager.GameState == GameState.Dying) {
             yield return null;
         }
 
